@@ -1,0 +1,94 @@
+.navbar_desk{
+    display: block;
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #031131;
+    z-index: 99;
+}
+.navbar_head{
+    position: relative;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.navbar_head div{
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: center;
+}
+.navbar_head img{
+    width: 20%;
+    margin: 0 20px 0 30px;
+}
+.navbar_head span{
+    font-size: 20px;
+    margin-top: 10px;
+    color: white;
+}
+.navbar_head button{
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    right: 0;
+    top: 40px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.navbar_head button:active{
+    color: #031131;
+}
+.navbar_desk_ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.navbar_desk_ul li{
+    padding: 10px 0 10px 15px;
+    margin: 10px 0;
+    border-right: 5px solid #031131;
+    cursor: pointer;
+}
+.navbar_desk_ul li:hover{
+    background-color: #031131;
+}
+.navbar_desk_ul a{
+    text-decoration: none;
+    color: white;
+}
+
+.navbar_account{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    height: 50px;
+    width: 300px;
+    bottom: 0;
+    background-color: #031131;
+    color: white;
+}
+.navbar_account img{
+    width: 10%;
+    border-radius: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.navbar_account_info{
+    font-size: 12px;
+}
+.navbar_account button{
+    position: absolute;
+    color: white;
+    right: 10px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
