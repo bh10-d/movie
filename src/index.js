@@ -5,6 +5,7 @@ import App from './App';
 import Navbar from './components/navbar/navbar.component';
 import HomePage from './pages/homepage/homepage.component';
 import reportWebVitals from './reportWebVitals';
+import 'tw-elements';
 
 ReactDOM.render(
   <React.StrictMode>

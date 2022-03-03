@@ -6,13 +6,17 @@
 }
 
 .homepage_block{
-    /* display: flex;
-    justify-content: space-around; */
+    display: flex;
+    justify-content: space-around;
 }
-
+.homepage_block_e{
+    width: 70%;
+    display: block;
+}
 .banner{
     margin: 20px;
     height: 300px;
+    /* width: 500px; */
     border-radius: 20px;
 }
 .banner img{
@@ -23,18 +27,18 @@
 .preview_list h2{
     color: white;
     margin-left: 20px;
+    margin-top: 20px ;
 }
 .preview_list .plist{
     margin: 20px;
     color: white;
     display: flex;
-
 }
-.pmovie{
-    width: 15%;
-    height:250px;
+/* .pmovie{
+    width: 20%;
+    height: 400px;
     margin: 0 10px;
-}
+} */
 .pmovie a{
     text-decoration: none;
     color: white;
@@ -44,7 +48,10 @@
     height: 80%;
 }
 .pmovie span{
-    padding-left: 10px;
+    /* padding-left: 10px; */
     font-size: 15px;
     font-weight: bold;
+}
+.slider{
+    /* width: 100%; */
 }

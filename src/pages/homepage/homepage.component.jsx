@@ -9,8 +9,8 @@ const HomePage = () => {
 
     return (
         <div className="homepage">
-            <div className="homepage_block flex flex-row">
-                <div className="homepage_block_e basis-9/12 md:basis-9/12">
+            <div className="homepage_block">
+                <div className="homepage_block_e">
                     <div className="banner">
                         <Banner />
                     </div>
