@@ -10,7 +10,7 @@ const Navbar = () => {
             <div className="navbar_head">
                 <div>
                     <img src={'/avatar.jpg'} alt="5anhemsieunhan" />
-                    <span>bocdaudongio</span>
+                    <span>bốc đầu đón gió</span>
                 </div>
                 {/* <button>
                     <i className="fa-solid fa-bars"></i>

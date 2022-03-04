@@ -16,7 +16,7 @@ let lists = [
         movie: [
             {
                 idmovie: 1,
-                title: 'Fast and Furious 8',
+                title: 'Fast and Furious 8hasgdjgasjgdgagsjgsajdgjasgagsjgasjd',
                 banner: './banner1.jpg'
             },
             {
@@ -174,12 +174,12 @@ const PreviewList = () => {
                                         <SwiperSlide
                                             style={{
                                                 width: '150px',
-                                                height: '250px'
+                                                height: '250px',
                                             }}
                                         >
                                             <a href="#">
                                                 <img style={{height:'70%'}} src={m.banner} alt={m.title} />
-                                                <h1 className="text-xl text-ellipsis overflow-hidden">{m.title}</h1>
+                                                <h1 className="text-lg text-ellipsis overflow-hidden">{m.title}</h1>
                                             </a>
                                         </SwiperSlide>
                                     </div>)

@@ -3,6 +3,7 @@
     width: calc(100% - 340px);
     position: relative;
     left: 320px;
+    transition: all .5s linear;
 }
 
 .homepage_block{
@@ -10,7 +11,7 @@
     justify-content: space-around;
 }
 .homepage_block_e{
-    width: 70%;
+    width: 80%;
     display: block;
 }
 .banner{
@@ -54,4 +55,11 @@
 }
 .slider{
     /* width: 100%; */
+}
+
+@media screen and (max-width: 1080px) {
+    .homepage{
+        left: 200px;
+        transition: all .5s linear; 
+    }
 }

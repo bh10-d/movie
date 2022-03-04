@@ -6,6 +6,7 @@
     left: 0;
     top: 0;
     background-color: #031131;
+    transition: all .5s linear;
     z-index: 99;
 }
 .navbar_head{
@@ -73,6 +74,7 @@
     bottom: 0;
     background-color: #031131;
     color: white;
+    transition: all .5s linear;
 }
 .navbar_account img{
     width: 10%;
@@ -91,4 +93,11 @@
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1080px){
+    .navbar_desk,.navbar_account{
+        width: 200px;
+        transition: all .5s linear; 
+    }
 }
