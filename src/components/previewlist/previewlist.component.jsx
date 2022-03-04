@@ -61,42 +61,42 @@ let lists = [
         topic: 'Drama',
         movie: [
             {
-                idmovie: 1,
+                idmovie: 10,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 2,
+                idmovie: 11,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 3,
+                idmovie: 12,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 4,
+                idmovie: 13,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 5,
+                idmovie: 14,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 6,
+                idmovie: 15,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 7,
+                idmovie: 16,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 8,
+                idmovie: 17,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
@@ -107,42 +107,42 @@ let lists = [
         topic: 'Sitcom',
         movie: [
             {
-                idmovie: 1,
+                idmovie: 18,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 2,
+                idmovie: 19,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 3,
+                idmovie: 20,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 4,
+                idmovie: 21,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 5,
+                idmovie: 22,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 6,
+                idmovie: 23,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 7,
+                idmovie: 24,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
             {
-                idmovie: 8,
+                idmovie: 25,
                 title: 'Fast and Furious 8',
                 banner: './banner1.jpg'
             },
@@ -176,6 +176,7 @@ const PreviewList = () => {
                                                 width: '150px',
                                                 height: '250px',
                                             }}
+                                            key={m.idmovie}
                                         >
                                             <a href="#">
                                                 <img style={{height:'70%'}} src={m.banner} alt={m.title} />

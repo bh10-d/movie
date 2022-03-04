@@ -53,9 +53,8 @@
     font-size: 15px;
     font-weight: bold;
 }
-.slider{
-    /* width: 100%; */
-}
+/* .slider{
+} */
 
 @media screen and (max-width: 1080px) {
     .homepage{
