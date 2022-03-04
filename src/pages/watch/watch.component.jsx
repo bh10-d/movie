@@ -8,7 +8,7 @@ const Watch = ()=>{
     return (
         <div>
 
-            Watch
+            <h1 className="text-xl text-cyan-500">Watch</h1>
 
         </div>
     )
