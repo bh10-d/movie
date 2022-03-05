@@ -19,8 +19,8 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/watch" element={<Watch/>} />
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/watch/:v" element={<Watch />} />
       </Routes>
     </div>
   );

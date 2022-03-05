@@ -1,6 +1,5 @@
 import React from "react";
-import '../previewlist/previewlist.styles.css';
-
+import { Link } from "react-router-dom";
 
 /*slider */
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -8,6 +7,8 @@ import { Navigation } from "swiper";
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
+//my styles
+import '../previewlist/previewlist.styles.css';
 
 let lists = [
     {
@@ -178,10 +179,10 @@ const PreviewList = () => {
                                             }}
                                             key={m.idmovie}
                                         >
-                                            <a href="#">
+                                            <Link to={`/watch/${m.idmovie}`}>
                                                 <img style={{height:'70%'}} src={m.banner} alt={m.title} />
                                                 <h1 className="text-lg text-ellipsis overflow-hidden">{m.title}</h1>
-                                            </a>
+                                            </Link>
                                         </SwiperSlide>
                                     </div>)
                                 )

@@ -1,7 +1,7 @@
 import React from "react";
 import '../sidebar/sidebar.styles.css';
 
-const Sidebar = ()=>{
+const Sidebar = () => {
 
     return (
         <div className="sidebar">
@@ -9,7 +9,7 @@ const Sidebar = ()=>{
             <h2>Sidebar component đang được phát triển</h2>
             <div style={{
                 // backgroundColor: 'red',
-                height: '100%'
+                height: '100%',
             }}>
             </div>
 
