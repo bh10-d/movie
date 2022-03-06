@@ -1,10 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ReactHlsPlayer from 'react-hls-player';
+// import { data } from "autoprefixer";
 import './watch.styles.css';
 import Sidebar from '../../components/sidebar/sidebar.component';
 import Episode from '../../components/episode/episode.component';
-import { data } from "autoprefixer";
 
 const Watch = () => {
     let { v } = useParams();
@@ -64,21 +65,27 @@ const Watch = () => {
             }
         }).then(res => res.json())
             .then(d => {
-                setMovie(d.data);
+                setMedia(d.data);
             })
     }, []);
+
 
     return (
         <div>
             {/*video*/}
             <div className="block_video h-[200vh]">
-                <div className="video mt-[70px] w-full h-[70vh]">
-                    {/* <h1 className="text-xl text-cyan-500 text-center">Watch film id: {v}</h1> */}
-                    <video width="100%" height="100%" controls src={movie.mediaUrl}>asd</video>
+                <div className="video mt-[70px] w-full h-[90vh]">
+                    <ReactHlsPlayer
+                        src={media.mediaUrl}
+                        autoPlay={false}
+                        controls={true}
+                        width="100%"
+                        height="auto"
+                    />
                 </div>
                 <div className="container mx-auto">
-                    <h1 className="text-[30px]">{movie.name} ({movie.year})</h1>
-                    <h3><span><i className="fa-solid fa-star text-yellow-300"></i></span> {movie.score}</h3>
+                    <h1 className="text-[30px]">{movie.name}</h1>
+                    <h3><span><i className="fa-solid fa-star text-yellow-300"></i></span> {movie.score} <i className="fa-solid fa-calendar"></i> {movie.year}</h3>
                     <div className="introduce">
                         <p>{movie.introduction}</p>
                     </div>
