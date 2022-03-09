@@ -14,25 +14,8 @@ const Watch = () => {
     const [movie, setMovie] = useState('');
     const [media, setMedia] = useState([]);
 
-    // async function postData(url = '') {
-    //     const response = await fetch(url, {
-    //         // method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    //         mode: 'cors',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'lang': 'en',
-    //             'versioncode': '11',
-    //             'clienttype': 'ios_jike_default'
-    //         }
-    //     });
-    //     return response.json();
-    // }
-    // postData('https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=8084&category=0')
-    //     .then(response => {
-    //         // setData(response);
-    //         console.log(response);
-    //     });
 
+    // let baseUrl1 = 'https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=8084&category=0'; // info phim
     useEffect(() => {
         fetch('https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=8084&category=0', {
             method: 'GET',
@@ -48,12 +31,9 @@ const Watch = () => {
                 setMovie(d.data);
                 console.log(d);
             })
-        // cleanup 
-        // return ()=>{
-        //     setData([]);
-        // }
     }, [])
 
+    // let baseUrl2 = 'https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=0&contentId=8084&episodeId=37813&definition=GROOT_LD' // coi phim
     useEffect(() => {
         fetch('https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=0&contentId=8084&episodeId=37813&definition=GROOT_LD', {
             method: 'GET',
