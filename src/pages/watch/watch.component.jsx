@@ -72,9 +72,9 @@ const Watch = () => {
         <div>
             {/*video*/}
             <div className="block_video h-[200vh]">
-                <div className="video mt-[70px] w-full h-[70vh]">
+                <div className="video mt-[70px] w-full h-[100vh]">
                     {/* <h1 className="text-xl text-cyan-500 text-center">Watch film id: {v}</h1> */}
-                    <video width="100%" height="100%" controls src={movie.mediaUrl}>asd</video>
+                    <video className="w-full h-[90vh]" controls src={movie.mediaUrl}>asd</video>
                 </div>
                 <div className="container mx-auto">
                     <h1 className="text-[30px]">{movie.name} ({movie.year})</h1>
