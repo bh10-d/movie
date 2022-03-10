@@ -1,10 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ReactHlsPlayer from 'react-hls-player';
+// import { data } from "autoprefixer";
 import './watch.styles.css';
 import Sidebar from '../../components/sidebar/sidebar.component';
 import Episode from '../../components/episode/episode.component';
-import { data } from "autoprefixer";
 
 const Watch = () => {
     let { v } = useParams();
@@ -13,25 +14,8 @@ const Watch = () => {
     const [movie, setMovie] = useState('');
     const [media, setMedia] = useState([]);
 
-    // async function postData(url = '') {
-    //     const response = await fetch(url, {
-    //         // method: 'GET', // *GET, POST, PUT, DELETE, etc.
-    //         mode: 'cors',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'lang': 'en',
-    //             'versioncode': '11',
-    //             'clienttype': 'ios_jike_default'
-    //         }
-    //     });
-    //     return response.json();
-    // }
-    // postData('https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=8084&category=0')
-    //     .then(response => {
-    //         // setData(response);
-    //         console.log(response);
-    //     });
 
+    // let baseUrl1 = 'https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=8084&category=0'; // info phim
     useEffect(() => {
         fetch('https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=8084&category=0', {
             method: 'GET',
@@ -47,12 +31,9 @@ const Watch = () => {
                 setMovie(d.data);
                 console.log(d);
             })
-        // cleanup 
-        // return ()=>{
-        //     setData([]);
-        // }
     }, [])
 
+    // let baseUrl2 = 'https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=0&contentId=8084&episodeId=37813&definition=GROOT_LD' // coi phim
     useEffect(() => {
         fetch('https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=0&contentId=8084&episodeId=37813&definition=GROOT_LD', {
             method: 'GET',
@@ -64,21 +45,27 @@ const Watch = () => {
             }
         }).then(res => res.json())
             .then(d => {
-                setMovie(d.data);
+                setMedia(d.data);
             })
     }, []);
+
 
     return (
         <div>
             {/*video*/}
             <div className="block_video h-[200vh]">
-                <div className="video mt-[70px] w-full h-[100vh]">
-                    {/* <h1 className="text-xl text-cyan-500 text-center">Watch film id: {v}</h1> */}
-                    <video className="w-full h-[90vh]" controls src={movie.mediaUrl}>asd</video>
+                <div className="video mt-[70px] w-full h-[90vh]">
+                    <ReactHlsPlayer
+                        src={media.mediaUrl}
+                        autoPlay={false}
+                        controls={true}
+                        width="100%"
+                        height="auto"
+                    />
                 </div>
                 <div className="container mx-auto">
-                    <h1 className="text-[30px]">{movie.name} ({movie.year})</h1>
-                    <h3><span><i className="fa-solid fa-star text-yellow-300"></i></span> {movie.score}</h3>
+                    <h1 className="text-[30px]">{movie.name}</h1>
+                    <h3><span><i className="fa-solid fa-star text-yellow-300"></i></span> {movie.score} <i className="fa-solid fa-calendar"></i> {movie.year}</h3>
                     <div className="introduce">
                         <p>{movie.introduction}</p>
                     </div>

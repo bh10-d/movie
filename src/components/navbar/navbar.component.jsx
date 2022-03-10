@@ -7,27 +7,21 @@ const Navbar = () => {
 
 
     return (
-        <div className="navbar_desk basis-3/12 md:basis-3/12">
+        <div className="navbar_desk">
             <div className="navbar_head">
                 <div>
                     <img src={'/avatar.jpg'} alt="5anhemsieunhan" />
-                    <span>bốc đầu đón gió</span>
+                    <span>movie</span>
                 </div>
-                {/* <button>
+                <button onClick={() =>{}}> 
                     <i className="fa-solid fa-bars"></i>
-                </button> */}
+                </button>
+                {/* <label htmlFor="hamburger"><i className="fa-solid fa-bars"></i></label>
+                <input id="hamburger" type="checkbox" hidden/> */}
             </div>
             <ul className="navbar_desk_ul">
-                <li><input type="text" placeholder="Enter film name" style={{
-                    backgroundColor: '#003399',
-                    outline: 'none',
-                    color: '#fff',
-                    padding: '10px',
-                    width: '100%',
-                    borderRadius: '20px'
-                }} /></li>
-                <li style={{backgroundColor: '#FF6600'}}><a href="#">Home</a></li>
-                {/* <li><Link to="/watch">Watch</Link></li> */}
+                <li><input id="search" type="text" title="Nhap ten phim di mat lon" placeholder="Enter film name"/></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#">Movie</a></li>
                 <li><a href="#">History</a></li>
             </ul>

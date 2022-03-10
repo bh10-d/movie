@@ -36,7 +36,7 @@
     position: absolute;
     font-size: 20px;
     color: white;
-    right: 0;
+    right: 20px;
     top: 40px;
     background-color: transparent;
     outline: none;
@@ -46,6 +46,23 @@
 .navbar_head button:active{
     color: #031131;
 }
+
+/* .navbar_head label{
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    right: 20px;
+    top: 40px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+input[id="hamburger"]:checked .navbar_desk{
+    width: 100px;
+} */
+
+
 .navbar_desk_ul{
     list-style-type: none;
     margin: 0;
@@ -64,7 +81,13 @@
     text-decoration: none;
     color: white;
 }
-
+ul li input[id='search']{
+    padding: 10px;
+    width: 95%;
+    border-radius: 20px;
+    outline: none;
+    background-color: #0a1e46;
+}
 .navbar_account{
     display: flex;
     align-items: center;
