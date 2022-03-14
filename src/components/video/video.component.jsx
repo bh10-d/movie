@@ -3,13 +3,13 @@ import ReactHlsPlayer from 'react-hls-player';
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const Video = ({ data, episode }) => {
+const Video = ({ data, episode, first }) => {
     const { c, v } = useParams();
     const [media, setMedia] = useState([]);
 
     useEffect(() => {
         const myAbortController = new AbortController();
-        fetch(`https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=${c}&contentId=${v}&episodeId=${episode}&definition=GROOT_HD`, { // 37813 //data.data.episodeVo[0].id
+        fetch(`https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=${c}&contentId=${v}&episodeId=${episode||first}&definition=GROOT_HD`, { // 37813 //data.data.episodeVo[0].id
             method: 'GET',
             headers: {
                 // 'Content-type': 'application/json;charset=UTF-8',
@@ -27,15 +27,17 @@ const Video = ({ data, episode }) => {
         return () => {
             myAbortController.abort();
         }
-    }, [episode || data]);
+    }, [first || episode || data]);
 
-    // const urlfilm = media.mediaUrl;
+    // const urlfilm = data.episodeVo[0].id;
     // console.log(urlfilm);
+
+    console.log(first);
 
     return (
         <div className="video w-full">
             <ReactHlsPlayer
-                src={media}
+                src={media||first}
                 autoPlay={false}
                 controls={true}
                 width="100%"
