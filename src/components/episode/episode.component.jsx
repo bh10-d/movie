@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 const Episode = ({ ep,first }) => {
     let { c, v, e } = useParams();
     console.log(c, v)
-    console.log(ep);
+    // console.log(ep);
     const episode = e;
     console.log(episode);
     if (ep == null) {
