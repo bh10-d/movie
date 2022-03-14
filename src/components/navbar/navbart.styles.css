@@ -1,0 +1,18 @@
+.navbart{
+    display:flex;
+    /* height: 100px; */
+    /* justify-content: center; */
+    align-items: center;
+    /* background-color: red; */
+}
+.navbart li{
+    padding: 10px;
+    cursor: pointer;
+}
+.navbart li:first-child{
+    font-size: 30px;
+    padding: 10px 10px 10px 0;
+}
+.navbart li:hover{
+    color: gray;
+}

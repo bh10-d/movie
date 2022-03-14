@@ -25,13 +25,19 @@ const PreviewList = ({ data }) => {
         setLoading(true);
         if (data != '') {
             setLoading(false);
-            setInfo(data[2]);
+            // setInfo(data[2]);
+            setInfo(data);
         }
     }, [data]);
 
     if (loading) {
         return <p>Data is loading...</p>;
     }
+
+    const extract = info.filter((f, i) => i > 1 && i<6);//.map((m,ii)=>{return m.homeSectionName});
+    // const extract = info.map((m,ii)=>{return info[ii].homeSectionName})
+    // console.log(info[2].homeSectionName);
+    console.log(extract);
 
     return (
         <div className="">
@@ -75,8 +81,41 @@ const PreviewList = ({ data }) => {
             )} */}
             {/* {data && <img src={info.imageUrl} />} */}
 
+            {extract.map((m, i) => (
+                <div key={i}>
+                    <h2 className="text-[25px] font-bold">{m.homeSectionName}</h2>
+                    <div className="plist">
+                        <Swiper
+                            modules={[Navigation]}
+                            slidesPerView='auto'
+                            slidesPerGroupAuto
+                            navigation
+                            spaceBetween={50}
+                        >
+                            {
+                                m.recommendContentVOList.map(mm => (
+                                    <div key={mm.id} className="pmovie">
+                                        <SwiperSlide
+                                            style={{
+                                                width: '150px',
+                                                height: '250px',
+                                            }}
+                                            key={mm.id}
+                                        >
+                                            <Link to={`/watch/${mm.category}/${mm.id}`}>
+                                                <img style={{ height: '70%' }} src={mm.imageUrl} alt={mm.title} />
+                                                <h1 className="text-lg text-ellipsis overflow-hidden">{mm.title}</h1>
+                                            </Link>
+                                        </SwiperSlide>
+                                    </div>)
+                                )
+                            }
+                        </Swiper>
+                    </div>
+                </div>
+            ))}
 
-            <h2 className="text-[25px] font-bold">Topic</h2>
+            {/* <h2 className="text-[25px] font-bold">{info.homeSectionName}</h2>
             <div className="plist">
                 <Swiper
                     modules={[Navigation]}
@@ -95,7 +134,7 @@ const PreviewList = ({ data }) => {
                                     }}
                                     key={m.id}
                                 >
-                                    <Link to={`/watch/${m.id}`}>
+                                    <Link to={`/watch/${m.category}/${m.id}`}>
                                         <img style={{ height: '70%' }} src={m.imageUrl} alt={m.title} />
                                         <h1 className="text-lg text-ellipsis overflow-hidden">{m.title}</h1>
                                     </Link>
@@ -104,7 +143,7 @@ const PreviewList = ({ data }) => {
                         )
                     }
                 </Swiper>
-            </div>
+            </div> */}
         </div>
     )
 }
