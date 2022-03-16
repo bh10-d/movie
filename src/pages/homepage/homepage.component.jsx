@@ -44,9 +44,9 @@ const HomePage = ({data}) => {
         <div className="home-section">
             <div className="homepage_block">
                 <div className="homepage_block_e">
-                    <div className="banner">
+                    {/* <div className="banner">
                         <Banner />
-                    </div>
+                    </div> */}
                     <div className="preview_list">
                         <PreviewList data={data} />
                     </div>

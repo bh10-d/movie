@@ -18,10 +18,10 @@ const Navbart = () => {
                     {/* <li>phim le</li> */}
                     <li><p>About</p></li>
                 </ul>
-                <div style={{display:'flex'}}>
+                {/* <div style={{display:'flex'}}>
                     <p style={{paddingRight: '10px'}}>tim kiem</p>
                     <p>thong tin ca nhan</p>
-                </div>
+                </div> */}
             </div>
         </div>
     )
