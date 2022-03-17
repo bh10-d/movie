@@ -23,7 +23,8 @@ const Episode = ({ ep,first }) => {
                             style={(episode==e.id||first==e.id)?{backgroundColor:'#990000'}:{}}
                             to={`/watch/${c}/${v}/${e.id}`}
                         >
-                            <p>Tập {i + 1}</p>
+                            {/* <p>Tập {i + 1}</p> */}
+                            <p>{i + 1}</p>
                         </Link>
                     ))
                     }

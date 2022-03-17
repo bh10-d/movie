@@ -108,7 +108,7 @@ const Watch = () => {
                     />
                 </div> */}
                 <Video data={movie} episode={e} first={episode}/>
-                <div className="pl-[50px] pr-[50px]">
+                <div className="md:pl-[50px] md:pr-[50px] pl-[10px] pr-[10px]">
                     <h1 className="text-[30px]">{movie ? movie.name : "name"}</h1>
                     <h3><span><i className="fa-solid fa-star text-yellow-300"></i></span> {movie ? movie.score : "score"} <i className="fa-solid fa-calendar"></i> {movie ? movie.year : "year"}</h3>
                     <div className="introduce">

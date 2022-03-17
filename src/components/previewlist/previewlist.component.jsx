@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 /*slider */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -28,10 +29,33 @@ const PreviewList = ({ data }) => {
         return <p>Data is loading...</p>;
     }
 
-    const extract = info.filter((f, i) => i > 1 && i < 7 && f.homeSectionName!="LOKLOK Charts");//.map((m,ii)=>{return m.homeSectionName});
+    const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts");//.map((m,ii)=>{return m.homeSectionName});
     // const extract = info.map((m,ii)=>{return info[ii].homeSectionName})
     // console.log(info[2].homeSectionName);
-    console.log(extract);
+    // console.log(extract);
+
+
+
+
+    // const MyImage = ({ image }) => (
+    //     <div>
+    //         <LazyLoadImage
+    //             alt={image.alt}
+    //             height={image.height}
+    //             src={image.src} // use normal <img> attributes as props
+    //             width={image.width} />
+    //         <span>{image.caption}</span>
+    //     </div>
+    // );
+
+    // <LazyLoadImage
+    //     alt={mm.title}
+    //     // height={image.height}
+    //     src={mm.imgUrl} // use normal <img> attributes as props
+    //     // width={image.width}
+    //      />
+
+
 
     return (
         <div>
@@ -52,13 +76,23 @@ const PreviewList = ({ data }) => {
                                         <SwiperSlide
                                             style={{
                                                 width: '150px',
-                                                height: '250px',
+                                                // height: '250px',
                                             }}
                                             key={mm.id}
                                         >
                                             <Link to={`/watch/${mm.category}/${mm.id}`}>
-                                                <img style={{ height: '70%' }} src={mm.imageUrl} alt={mm.title} />
-                                                <h1 className="text-lg text-ellipsis overflow-hidden">{mm.title}</h1>
+                                                <div className="rounded-md bg-slate-800 group">
+                                                    <LazyLoadImage
+                                                        className="group-hover:brightness-75 transition duration-300 object-cover"
+                                                        alt={mm.title}
+                                                        src={mm.imageUrl} // use normal <img> attributes as props
+                                                        // height={image.height}
+                                                        // width={image.width}
+                                                        effect="opacity"
+                                                    />
+                                                    {/* <img src={mm.imageUrl} alt={mm.title} /> */}
+                                                    <h1 className="text-lg text-ellipsis overflow-hidden mt-1">{mm.title}</h1>
+                                                </div>
                                             </Link>
                                         </SwiperSlide>
                                     </div>)

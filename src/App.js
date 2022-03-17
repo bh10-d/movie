@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import useSWR from 'swr';
-import axios from 'axios'
+import axios from 'axios';
 // import logo from './logo.svg';
 // import './App.css';
 import Navbar from './components/navbar/navbar.component';
@@ -46,7 +46,7 @@ const HomePage = () => {
       }
     })
      .then((response) => {
-      console.log(response.data.data.recommendItems);
+      // console.log(response.data.data.recommendItems);
       setPreview(response.data.data.recommendItems);
     } )
      .catch (error => console.error (`Error: ${error}`));

@@ -4,7 +4,7 @@ import '../navbar/navbart.styles.css';
 
 const Navbart = () => {
     return(
-        <div className="pl-[50px] pr-[50px]">
+        <div className="md:pl-[50px] md:pr-[50px] pl-[10px] pr-[10px]">
             {/* <p>navbart</p> */}
             <div style={{display: 'flex',flexDirection: 'center',alignItems: 'center',justifyContent: 'space-between'}}>
                 <ul className="navbart">
