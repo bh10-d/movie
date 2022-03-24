@@ -6,7 +6,7 @@ import Option from '../../directory/navbar/element.component';
 
 const Navbar = () => {
 
-    const [show, setShow] = useState('open');
+    const [show, setShow] = useState('close');
 
     const handleClick = () => {
         if (show === 'open') {
