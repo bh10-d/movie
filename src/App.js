@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import useSWR from 'swr';
+// import useSWR from 'swr';
 import axios from 'axios';
 // import logo from './logo.svg';
 // import './App.css';

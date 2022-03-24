@@ -3,7 +3,7 @@ import './homepage.styles.css';
 import Banner from '../../components/banner/banner.component';
 import Sidebar from '../../components/sidebar/sidebar.component';
 import PreviewList from '../../components/previewlist/previewlist.component';
-
+import Search from '../../components/search/search.component'
 const HomePage = ({data}) => {
 
     // const [preview, setPreview] = useState(data);
@@ -51,7 +51,7 @@ const HomePage = ({data}) => {
                         <PreviewList data={data} />
                     </div>
                 </div>
-                {/* <Sidebar /> */}
+                <Search/>
             </div>
         </div>
     )

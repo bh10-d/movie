@@ -38,11 +38,11 @@ const lib = [
 const Option = () => {
     return (
         <ul className="nav_list">
-            <li>
+            {/* <li>
                 <i className='bx bx-search'></i>
                 <input type="text" placeholder="Search..." />
                 <span className="tooltip">Search</span>
-            </li>
+            </li> */}
             {lib.map(m => (
                 <li key={m.id}>
                     <Link to={m.url}>

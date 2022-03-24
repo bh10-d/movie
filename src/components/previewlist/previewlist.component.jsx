@@ -9,7 +9,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'swiper/css';
 import 'swiper/css/navigation';
 //my styles
-import '../previewlist/previewlist.styles.css';
+import './previewlist.styles.css';
 
 
 const PreviewList = ({ data }) => {
@@ -29,7 +29,7 @@ const PreviewList = ({ data }) => {
         return <p>Data is loading...</p>;
     }
 
-    const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts");//.map((m,ii)=>{return m.homeSectionName});
+    const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars");//.map((m,ii)=>{return m.homeSectionName});
     // const extract = info.map((m,ii)=>{return info[ii].homeSectionName})
     // console.log(info[2].homeSectionName);
     // console.log(extract);
@@ -58,7 +58,7 @@ const PreviewList = ({ data }) => {
 
 
     return (
-        <div>
+        <>
             {extract.map((m, i) => (
                 <div key={i}>
                     <h2 className="text-[25px] font-bold">{m.homeSectionName}</h2>
@@ -75,23 +75,19 @@ const PreviewList = ({ data }) => {
                                     <div key={mm.id} className="pmovie">
                                         <SwiperSlide
                                             style={{
-                                                width: '150px',
-                                                // height: '250px',
+                                                width: '200px',
                                             }}
                                             key={mm.id}
                                         >
                                             <Link to={`/watch/${mm.category}/${mm.id}`}>
-                                                <div className="rounded-md bg-slate-800 group">
+                                                <div className="block_item-movie">
                                                     <LazyLoadImage
-                                                        className="group-hover:brightness-75 transition duration-300 object-cover"
+                                                        className=""
                                                         alt={mm.title}
-                                                        src={mm.imageUrl} // use normal <img> attributes as props
-                                                        // height={image.height}
-                                                        // width={image.width}
+                                                        src={mm.imageUrl}
                                                         effect="opacity"
                                                     />
-                                                    {/* <img src={mm.imageUrl} alt={mm.title} /> */}
-                                                    <h1 className="text-lg text-ellipsis overflow-hidden mt-1">{mm.title}</h1>
+                                                    <h1  className="text-ellipsis overflow-hidden">{mm.title}</h1>
                                                 </div>
                                             </Link>
                                         </SwiperSlide>
@@ -102,7 +98,7 @@ const PreviewList = ({ data }) => {
                     </div>
                 </div>
             ))}
-        </div>
+        </>
     )
 }
 
