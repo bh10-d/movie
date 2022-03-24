@@ -20,7 +20,6 @@ const PreviewList = ({ data }) => {
         setLoading(true);
         if (data != '') {
             setLoading(false);
-            // setInfo(data[2]);
             setInfo(data);
         }
     }, [data]);
@@ -75,7 +74,7 @@ const PreviewList = ({ data }) => {
                                     <div key={mm.id} className="pmovie">
                                         <SwiperSlide
                                             style={{
-                                                width: '200px',
+                                                width: '175px',
                                             }}
                                             key={mm.id}
                                         >

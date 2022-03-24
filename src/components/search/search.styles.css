@@ -1,6 +1,7 @@
 .block_item_input_search{
     position: relative;
     width: 300px;
+    /* width: 70%; */
 }
 
 .block_item_input_search_icon{
@@ -9,7 +10,7 @@
     /* transform: translateY(-50%); */
     border-radius: 12px;
     font-size: 22px;
-    background: violet;
+    background: #1d1b31;
     color: #FFF;
     cursor: pointer;
     z-index: 99;
@@ -35,7 +36,7 @@
     border: none;
     border-radius: 12px;
     transition: all 0.5s ease;
-    background: violet;
+    background: #1d1b31;
 }
 
 
@@ -43,4 +44,51 @@
     padding: 0 20px 0 50px;
     width: 100%;
     transition: all 0.5s ease;
+}
+
+.block_item_show_list{
+    display: block;
+    width: 300px;
+    /* width:70%; */
+    margin-top: 20px;
+    border-radius: 12px;
+    /* height: 600px; */
+    height: 0;
+    /* background: wheat; */
+    transition: all 0.5s ease;
+}
+
+.block_item_show_list.open{
+    height: 600px;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+    transition: all 0.5s ease;
+}
+.block_item_show_list ul{
+    transition: all 0.5s ease;
+    display: none;
+}
+.block_item_show_list.open ul{
+    transition: all 0.5s ease;
+    display: block;
+}
+
+.s_movie{
+    display: flex;
+    margin-top: 20px;
+}
+
+.s_movie img{
+    width: 30%;
+    margin-right: 20px;
+}
+.s_movie p{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media (max-width: 420px) {
+    .block_item_input_search, .block_item_show_list{
+        display: none;
+    }
 }

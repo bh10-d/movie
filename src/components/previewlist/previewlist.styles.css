@@ -12,7 +12,7 @@
 } */
 
 .block_item-movie {
-    height: 350px;
+    height: 300px;
     border-radius: 10px;
     background-color: #111129;
     white-space: nowrap;
@@ -21,11 +21,31 @@
 }
 
 .block_item-movie img{
-    /* width: 150px;
-    height: 200px; */
+    width: 175px;
+    height: 246px;
 }
 
 .block_item-movie h1{
     font-size: 20px;
     margin-top: 5px;
+}
+
+.ss_movie{
+    display: flex;
+    margin-top: 20px;
+}
+
+.ss_movie img{
+    width: 30%;
+    margin-right: 20px;
+}
+.ss_movie p{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+@media (max-width: 420px) {
+    .sidebar{
+        display: none;
+    }
 }

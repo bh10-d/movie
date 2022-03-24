@@ -26,6 +26,7 @@
 
 .preview_list {
     display: block;
+    margin-top: 70px;
 }
 .preview_list h2{
     color: white;
@@ -38,10 +39,15 @@
     /* display: flex; */
 }
 
+@media screen and (max-width: 1440px) {
+    .homepage_block_e{
+        width: 75%;
+    }
+}
 
 @media screen and (max-width: 1080px) {
-    .homepage{
-        left: 200px;
+    .homepage_block_e{
+        width: 65%;
         transition: all .7s linear; 
     }
 }
@@ -320,13 +326,23 @@
 
 @media (max-width: 420px) {
     .navbar{
+        width: 100%;
+        height: 70px;
+    }
+    .nav_list{
         display: none;
+    }
+    .navbar.open > .nav_list {
+        display: block;
     }
     .navbar li .tooltip {
         display: none;
     }
     .home-section{
         left: 0;
+        width: 97%;
+    }
+    .homepage_block_e{
         width: 100%;
     }
 }

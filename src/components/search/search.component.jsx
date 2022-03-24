@@ -16,14 +16,60 @@ const Search =() => {
     }
 
     return (
-        <>
+        <div style={{marginLeft:'10px'}}>
             <div className={`block_item_input_search ${show}`}>
                 <div className="block_item_input_search_icon" onClick={() =>handleClick()}>
                     <i className='bx bx-search'></i>
                 </div>
                 <input type="text" placeholder="Search"/>
             </div>
-        </>
+            <div className={`block_item_show_list ${show}`}>
+                <ul>
+                    <li>
+                        <div className="s_movie">
+                            <img src="./avatar.jpg" alt="ảnh phim" />
+                            <p>tên phim</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="s_movie">
+                            <img src="./avatar.jpg" alt="ảnh phim" />
+                            <p>tên phim</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="s_movie">
+                            <img src="./avatar.jpg" alt="ảnh phim" />
+                            <p>tên phim</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="s_movie">
+                            <img src="./avatar.jpg" alt="ảnh phim" />
+                            <p>tên phim</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="s_movie">
+                            <img src="./avatar.jpg" alt="ảnh phim" />
+                            <p>tên phim</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="s_movie">
+                            <img src="./avatar.jpg" alt="ảnh phim" />
+                            <p>tên phim</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div className="s_movie">
+                            <img src="./avatar.jpg" alt="ảnh phim" />
+                            <p>tên phim</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     )
 }
 
