@@ -28,7 +28,7 @@ const PreviewList = ({ data }) => {
         return <p>Data is loading...</p>;
     }
 
-    const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars");//.map((m,ii)=>{return m.homeSectionName});
+    const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");//.map((m,ii)=>{return m.homeSectionName});
     // const extract = info.map((m,ii)=>{return info[ii].homeSectionName})
     // console.log(info[2].homeSectionName);
     // console.log(extract);

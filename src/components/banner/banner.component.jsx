@@ -1,58 +1,55 @@
 import React from "react";
+import { useState, useEffect} from 'react';
 import '../banner/banner.styles.css';
+import HotBanner from '../../directory/banner/element.component';
 // import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Navigation } from "swiper";
 // Import Swiper styles
 // import 'swiper/css';
 // import 'swiper/css/navigation';
 
-const Banner = () => {
+const Banner = ({data}) => {
+
+
+
+
+    const [banner, setBanner] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setLoading(true);
+        if (data != '') {
+            setLoading(false);
+            setBanner(data);
+        }
+    }, [data]);
+
+    if (loading) {
+        return <p>Data is loading...</p>;
+    }
+
+
+
+
+    // const [banner, setBanner] = useState([]);
+
+    // useEffect(() => {
+    //     if (data != '') {
+    //         setBanner(data);
+    //     }
+    // }, [data]);
+
+    const extract = banner.filter((f, i) => f.homeSectionType == 'BANNER');//.map((m,ii)=>{return m.homeSectionName});
+
+
+    console.log(extract[1].recommendContentVOList);
+
+
     return (
         <div>
             {/* <img src="./banner1.jpg" alt="" /> */}
             <div id="carouselExampleControls" className="carousel slide relative" data-bs-ride="carousel">
-                <div className="carousel-inner relative w-full overflow-hidden">
-                    {/* <!-- Single item --> */}
-                    <div key="0" className="carousel-item active relative float-left w-full">
-                        <img
-                            src="./banner1.jpg"
-                            className="block w-full"
-                            alt="Motorbike Smoke"
-                        />
-                        <div className="carousel-caption hidden md:block absolute text-left">
-                            <h5 className="text-xl">First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
-                        </div>
-                    </div>
-
-                    {/* <!-- Single item --> */}
-                    <div key="1" className="carousel-item relative float-left w-full">
-                        <img
-                            src="./banner1.jpg"
-                            className="block w-full"
-                            alt="Mountaintop"
-                        />
-                        <div className="carousel-caption hidden md:block absolute text-left">
-                            <h5 className="text-xl">Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
-                        </div>
-                    </div>
-
-                    {/* <!-- Single item --> */}
-                    <div key="2" className="carousel-item relative float-left w-full">
-                        <img
-                            src="./banner1.jpg"
-                            className="block w-full"
-                            alt="Woman Reading a Book"
-                        />
-                        <div className="carousel-caption hidden md:block absolute text-left">
-                            <h5 className="text-xl">Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
-                        </div>
-                    </div>
-                </div>
-                {/* <!-- Inner --> */}
-
+                <HotBanner extract={extract}/>
                 <button
                     className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
                     type="button"

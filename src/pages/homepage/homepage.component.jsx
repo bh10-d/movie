@@ -12,16 +12,18 @@ const HomePage = ({data}) => {
         <div className="home-section">
             <div className="homepage_block">
                 <div className="homepage_block_e">
-                    {/* <div className="banner">
-                        <Banner />
-                    </div> */}
+                    <div className="banner">
+                        <Banner data={data} />
+                    </div>
                     <div className="preview_list">
                         <PreviewList data={data} />
                     </div>
                 </div>
                 <div>
                     <Search/>
-                    <Sidebar/>
+                    <div style={{marginLeft:'10px'}}>
+                        <Sidebar/>
+                    </div>
                 </div>
             </div>
         </div>
