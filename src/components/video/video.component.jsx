@@ -52,7 +52,7 @@ const Video = ({ data, episode, first }) => {
           });
         const data = await response.json();
         setMedia(data.data.mediaUrl);
-        console.log({ data })
+        // console.log({ data })
       }
       catch (e) {
         console.log(e)
@@ -90,7 +90,7 @@ const Video = ({ data, episode, first }) => {
 
 
 
-  console.log(first);
+  // console.log(first);
 
   return (
     <div className="video">

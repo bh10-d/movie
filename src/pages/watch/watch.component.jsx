@@ -18,6 +18,7 @@ const Watch = () => {
     // const [media, setMedia] = useState([]);
     const [loading, setLoading] = useState(true);
     const [episode,setEpisode] = useState('');
+    const [reso,setReso] = useState('')
 
     // let baseUrl1 = 'https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=8084&category=0'; // info phim
     useEffect(() => {
@@ -37,7 +38,12 @@ const Watch = () => {
                 setData(d);
                 setEpisode(d.data.episodeVo[0].id);
                 // console.log(d.data.episodeVo[0].id);
-                // console.log(v);
+                console.log(d);
+                let test = d.data.episodeVo.filter((f,i)=>f.id === d.data.episodeVo[0].id || f.id === e);
+                test.map((m) =>{
+                    // console.log(m.definitionList[0].code);
+                    setReso(m.definitionList[0].code);
+                })
             }).finally(setLoading(false));
 
         //cleanup
@@ -55,7 +61,7 @@ const Watch = () => {
     useEffect(() => {
         setEpisode(e);
     },[e]);
-
+    
     
     // let baseUrl2 = 'https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=0&contentId=8084&episodeId=37813&definition=GROOT_LD' // coi phim
     // useEffect(() => {
@@ -116,10 +122,10 @@ const Watch = () => {
                         <p>{movie ? movie.introduction : "introduction"}</p>
                     </div>
                     <div className=" mt-[30px] flex flex-row">
-                        <div className="basis-9/12">
+                        <div className="sm:basis-9/12">
                             <Episode ep={movie.episodeVo} first={episode}/>
                         </div>
-                        <div className="basis-3/12">
+                        <div className="sm:basis-3/12">
                             <div style={{marginLeft:'-10px'}}>
                                 <Search />
                             </div>

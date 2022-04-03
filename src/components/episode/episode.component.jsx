@@ -3,10 +3,10 @@ import { Link, useParams } from "react-router-dom";
 // import '../episode/episode.styles.css';
 const Episode = ({ ep,first }) => {
     let { c, v, e } = useParams();
-    console.log(c, v)
+    // console.log(c, v)
     // console.log(ep);
     const episode = e;
-    console.log(episode);
+    // console.log(episode);
     if (ep == null) {
         return <p>waitting</p>
     } else {
