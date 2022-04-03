@@ -6,7 +6,7 @@ const HotBanner = ({extract}) => {
     return (
         <>
             <div className="carousel-inner relative w-full overflow-hidden">
-                    {extract[1].recommendContentVOList.filter((f,i)=>f.title != '' && f.title != 'Sound Track 1').map((m,i)=>(
+                    {extract.map(m=>m.recommendContentVOList.filter((f,i)=>f.title != '' && f.title != 'Sound Track 1').map((m,i)=>(
                         <div key={i} className={(i==0)?'carousel-item relative float-left w-full bannerr active':'carousel-item relative float-left w-full bannerr'}>
                             <img
                                 src={`${m.imageUrl}`}
@@ -17,7 +17,7 @@ const HotBanner = ({extract}) => {
                                 <h5 className="text-4xl">{m.title}</h5>
                             </div>
                         </div>
-                    ))}
+                    )))}
                     {/* <div key="1" className="carousel-item active relative float-left w-full bannerr">
                         <img
                             src={`${extract[1].recommendContentVOList[4].imageUrl}`}

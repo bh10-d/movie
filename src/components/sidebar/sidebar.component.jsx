@@ -15,43 +15,43 @@ const Sidebar = () => {
             <ul>
                     <li>
                         <div className="ss_movie">
-                            <img src="avatar.jpg" alt="ảnh phim" />
+                            <img src="/avatar.jpg" alt="ảnh phim" />
                             <p>tên phim</p>
                         </div>
                     </li>
                     <li>
                         <div className="ss_movie">
-                            <img src="avatar.jpg" alt="ảnh phim" />
+                            <img src="/avatar.jpg" alt="ảnh phim" />
                             <p>tên phim</p>
                         </div>
                     </li>
                     <li>
                         <div className="ss_movie">
-                            <img src="avatar.jpg" alt="ảnh phim" />
+                            <img src="/avatar.jpg" alt="ảnh phim" />
                             <p>tên phim</p>
                         </div>
                     </li>
                     <li>
                         <div className="ss_movie">
-                            <img src="avatar.jpg" alt="ảnh phim" />
+                            <img src="/avatar.jpg" alt="ảnh phim" />
                             <p>tên phim</p>
                         </div>
                     </li>
                     <li>
                         <div className="ss_movie">
-                            <img src="avatar.jpg" alt="ảnh phim" />
+                            <img src="/avatar.jpg" alt="ảnh phim" />
                             <p>tên phim</p>
                         </div>
                     </li>
                     <li>
                         <div className="ss_movie">
-                            <img src="avatar.jpg" alt="ảnh phim" />
+                            <img src="/avatar.jpg" alt="ảnh phim" />
                             <p>tên phim</p>
                         </div>
                     </li>
                     <li>
                         <div className="ss_movie">
-                            <img src="avatar.jpg" alt="ảnh phim" />
+                            <img src="/avatar.jpg" alt="ảnh phim" />
                             <p>tên phim</p>
                         </div>
                     </li>

@@ -42,7 +42,7 @@ const Banner = ({data}) => {
     const extract = banner.filter((f, i) => f.homeSectionType == 'BANNER');//.map((m,ii)=>{return m.homeSectionName});
 
 
-    console.log(extract[1].recommendContentVOList);
+    // console.log(extract.map((f) =>f.recommendContentVOList));
 
 
     return (

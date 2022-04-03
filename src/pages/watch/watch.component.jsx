@@ -8,6 +8,7 @@ import Video from '../../components/video/video.component';
 import Navbart from '../../components/navbar/navbart.component';
 import Sidebar from '../../components/sidebar/sidebar.component';
 import Episode from '../../components/episode/episode.component';
+import Search from '../../components/search/search.component';
 
 const Watch = () => {
     const { c, v, e } = useParams();
@@ -119,6 +120,9 @@ const Watch = () => {
                             <Episode ep={movie.episodeVo} first={episode}/>
                         </div>
                         <div className="basis-3/12">
+                            <div style={{marginLeft:'-10px'}}>
+                                <Search />
+                            </div>
                             <Sidebar />
                         </div>
                     </div>

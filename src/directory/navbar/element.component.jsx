@@ -23,7 +23,7 @@ const lib = [
     },
     {
         id: "4",
-        content: "Saved",
+        content: "History",
         url: "/saved",
         icon: "bx bx-heart"
     },

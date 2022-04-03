@@ -24,7 +24,8 @@ const HomePage = () => {
     }).then(res => res.json())
       .then(d => {
         setPreview(d.data.recommendItems);
-        console.log(d.data.recommendItems);
+        // console.log(d.data.recommendItems);
+        // console.log(d)
       })
       .catch(err => console.log(err))
       .finally(() => setLoading(false));
