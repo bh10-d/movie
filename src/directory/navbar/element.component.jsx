@@ -24,8 +24,8 @@ const lib = [
     {
         id: "4",
         content: "History",
-        url: "/saved",
-        icon: "bx bx-heart"
+        url: "/history",
+        icon: "bx bx-history"
     },
     {
         id: "5",

@@ -25,7 +25,7 @@ const Banner = ({data}) => {
     }, [data]);
 
     if (loading) {
-        return <p>Data is loading...</p>;
+        return <p>loading...</p>;
     }
 
 

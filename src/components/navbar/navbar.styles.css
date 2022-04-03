@@ -258,3 +258,55 @@
         display: none;
     }
 } */
+
+
+.small_search{
+    display: none;
+}
+
+
+.small_search.open{
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 70px;
+    background:rgba(0, 0, 0, 0.8);
+    z-index: 100;
+}
+
+.small_search input {
+    width: 100%;
+    color: black;
+    border-radius: 12px;
+    padding: 8px 10px 8px 10px;
+    outline: none;
+    border: none;
+    font-weight: bold;
+}
+
+.small_search_list_film {
+    height: 80vh;
+    overflow-y: scroll;
+}
+
+.small_search_film_element{
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+
+.small_search_film_element img{
+    width: 30%;
+    margin-left: 10px;
+    margin-right: 40px;
+}
+
+.small_search_film_element h1{
+    font-size: 25px;
+}
+.small_search_film_element p{
+    font-size: 15px;
+}

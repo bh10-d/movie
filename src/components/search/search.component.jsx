@@ -72,7 +72,6 @@ const Search =() => {
                                 default:
                                     return convert = 1;
                             }
-                            console.log(type);
                         }
                         
                         return (

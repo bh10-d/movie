@@ -101,6 +101,44 @@
     text-align: right;
 }
 
+.navbar .logo-details #search {
+    /* position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: all 0.7s ease;
+    font-size: 23px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.7s ease; */
+    display: none;
+}
+
+/* .navbar.open .logo-details #search {
+    text-align: right;
+} */
+
+@media screen and (max-width: 420px) {
+    .navbar .logo-details #search {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 40px;
+        transform: translateY(-50%);
+        font-size: 22px;
+        transition: all 0.7s ease;
+        font-size: 23px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.7s ease;
+    }
+    
+    .navbar.open .logo-details #search {
+        text-align: right;
+    }
+}
+
 .navbar i {
     color: #fff;
     height: 60px;
