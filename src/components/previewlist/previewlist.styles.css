@@ -30,7 +30,7 @@
     margin-top: 5px;
 }
 
-.ss_movie{
+/* .ss_movie{
     display: flex;
     margin-top: 20px;
 }
@@ -42,7 +42,7 @@
 .ss_movie p{
     font-size: 18px;
     font-weight: bold;
-}
+} */
 
 @media (max-width: 420px) {
     .sidebar{

@@ -53,7 +53,7 @@ const HomePage = () => {
   return (
     <div>
       <Navbar />
-      { loading?<p>Data is loading...</p>:<Home data={preview} />}
+      { loading?<p>loading...</p>:<Home data={preview} />}
     </div>
   )
 }

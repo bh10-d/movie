@@ -25,7 +25,7 @@ const PreviewList = ({ data }) => {
     }, [data]);
 
     if (loading) {
-        return <p>Data is loading...</p>;
+        return <p>loading...</p>;
     }
 
     const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");//.map((m,ii)=>{return m.homeSectionName});

@@ -21,16 +21,16 @@ const Search =() => {
         fetch('https://ga-mobile-api.loklok.tv/cms/app/search/v1/searchWithKeyWord', {
             method: 'POST',
             headers: {
-            'Content-type': 'application/json;charset=UTF-8',
-            'lang': 'en',
-            'versioncode': '11',
-            'clienttype': 'ios_jike_default'
+                'Content-type': 'application/json;charset=UTF-8',
+                'lang': 'en',
+                'versioncode': '11',
+                'clienttype': 'ios_jike_default'
             },
             body: JSON.stringify({
-            "searchKeyWord": input,
-            "size": 50,
-            "sort": "",
-            "searchType": ""
+                "searchKeyWord": input,
+                "size": 50,
+                "sort": "",
+                "searchType": ""
             })
         }).then(res => res.json())
             .then(d => {
@@ -47,7 +47,7 @@ const Search =() => {
         clearTimeout(TimerId);
         TimerId = setTimeout(() => {
             setInput(e.target.value);
-            console.log(e.target.value);
+            // console.log(e.target.value);
         },300)
     }
 

@@ -3,3 +3,16 @@
     color: white;
     /* width: 25%; */
 }
+.ss_movie{
+    display: flex;
+    margin-top: 20px;
+}
+
+.ss_movie img{
+    width: 40%;
+    margin-right: 20px;
+}
+.ss_movie p{
+    font-size: 18px;
+    font-weight: bold;
+}
