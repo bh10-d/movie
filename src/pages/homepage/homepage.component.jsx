@@ -21,9 +21,9 @@ const HomePage = ({data}) => {
                 </div>
                 <div>
                     <Search/>
-                    <div style={{marginLeft:'10px'}}>
+                    {/* <div style={{marginLeft:'10px'}}>
                         <Sidebar/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

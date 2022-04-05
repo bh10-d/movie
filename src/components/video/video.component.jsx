@@ -1,6 +1,6 @@
 import React from "react";
 import ReactHlsPlayer from 'react-hls-player';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 // import axios from 'axios'
 import './video.styles.css';
@@ -8,6 +8,9 @@ import './video.styles.css';
 const Video = ({ data, episode, first }) => {
   const { c, v } = useParams();
   const [media, setMedia] = useState([]);
+  const [status,setStatus] = useState(false);
+
+  // const handleError = useRef(null);
   //<meta http-equiv="Access-Control-Allow-Origin" content="*" />
   // useEffect(() => {
   //     const myAbortController = new AbortController();
@@ -32,11 +35,6 @@ const Video = ({ data, episode, first }) => {
   // }, [first || episode || data]);
 
 
-
-
-
-
-
   const makeAPICall = async () => {
       try {
         const response = await fetch(`https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=${c}&contentId=${v}&episodeId=${episode||first}&definition=GROOT_HD`, 
@@ -47,12 +45,15 @@ const Video = ({ data, episode, first }) => {
                   'lang': 'en',
                   'versioncode': '11',
                   'clienttype': 'ios_jike_default'
-              }
-
+              },
           });
         const data = await response.json();
+
+        
         setMedia(data.data.mediaUrl);
+        compare(data.data.mediaUrl)
         // console.log({ data })
+        console.log(data.data.mediaUrl)
       }
       catch (e) {
         console.log(e)
@@ -61,36 +62,49 @@ const Video = ({ data, episode, first }) => {
     useEffect(() => {
       makeAPICall();
     }, [episode||first])
+    
+    
+    const handleErrorVideo = (boo)=>{
+      if(boo){
+        setStatus(true)
+      }else{
+        setStatus(false)
+      }
+    }
+  
+    useEffect(() => {
+      makeAPICall()
+      // let TimerId = setInterval(()=>{
+      //   makeAPICall();
+      // },500) 
+      // return clearInterval(TimerId)
+    },[status])
 
 
-  // useEffect(() => {
-  //   getAllNotes();
-  // }, [episode || first]);
-  // const url = `https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=${c}&contentId=${v}&episodeId=${episode || first}&definition=GROOT_HD`;
-  // const getAllNotes = () => {
-  //   axios.get(`${url}`, {
-  //     headers: {
-  //       lang: "en",
-  //       versioncode: "11",
-  //       clienttype: "ios_jike_default",
-  //     }
-  //   })
-  //     .then((response) => {
-  //       console.log(response.data.data.mediaUrl);
-  //       setMedia(response.data.data.mediaUrl);
-  //     })
-  //     .catch(error => console.error(`Error: ${error}`));
-  // }
-  // console.log(url)
+  const compare = (str1) => {
+    let cstr1 = str1.substr(0,29)
+        switch(cstr1){
+          case "http://hw-cdn-play.loklok.tv/":
+            // handleErrorVideo(true)
+            setStatus(true)
+            console.log("case1")
+            console.log(cstr1)
+          case "http://gg-cdn-play.loklok.tv/":
+            // handleErrorVideo(true)
+            setStatus(true)
+            console.log("case2")
+            console.log(cstr1)
+          case "https://ali-cdn-play.loklok.t":
+            console.log("case2")
+            console.log(cstr1)
+          default:
+            handleErrorVideo(false) // hoi vo dung nhung co tac dung :)
+            console.log("default")
+            console.log(cstr1)
+        }
+  }
 
 
-
-
-
-
-
-
-  // console.log(first);
 
   return (
     <div className="video">
