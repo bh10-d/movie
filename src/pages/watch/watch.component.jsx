@@ -134,7 +134,6 @@ const Watch = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }

@@ -8,7 +8,6 @@ import './video.styles.css';
 const Video = ({ data, episode, first }) => {
   const { c, v } = useParams();
   const [media, setMedia] = useState([]);
-  const [status,setStatus] = useState(false);
 
   // const handleError = useRef(null);
   //<meta http-equiv="Access-Control-Allow-Origin" content="*" />
@@ -53,54 +52,22 @@ const Video = ({ data, episode, first }) => {
         setMedia(data.data.mediaUrl);
         compare(data.data.mediaUrl)
         // console.log({ data })
-        console.log(data.data.mediaUrl)
+        // console.log(data.data.mediaUrl)
       }
       catch (e) {
         console.log(e)
       }
     }
+
     useEffect(() => {
       makeAPICall();
     }, [episode||first])
-    
-    
-    const handleErrorVideo = (boo)=>{
-      if(boo){
-        setStatus(true)
-      }else{
-        setStatus(false)
-      }
-    }
-  
-    useEffect(() => {
-      makeAPICall()
-      // let TimerId = setInterval(()=>{
-      //   makeAPICall();
-      // },500) 
-      // return clearInterval(TimerId)
-    },[status])
-
+      
 
   const compare = (str1) => {
     let cstr1 = str1.substr(0,29)
-        switch(cstr1){
-          case "http://hw-cdn-play.loklok.tv/":
-            // handleErrorVideo(true)
-            setStatus(true)
-            console.log("case1")
-            console.log(cstr1)
-          case "http://gg-cdn-play.loklok.tv/":
-            // handleErrorVideo(true)
-            setStatus(true)
-            console.log("case2")
-            console.log(cstr1)
-          case "https://ali-cdn-play.loklok.t":
-            console.log("case2")
-            console.log(cstr1)
-          default:
-            handleErrorVideo(false) // hoi vo dung nhung co tac dung :)
-            console.log("default")
-            console.log(cstr1)
+        if(cstr1 == "http://hw-cdn-play.loklok.tv/" || cstr1 == "http://gg-cdn-play.loklok.tv/"){
+          makeAPICall();
         }
   }
 
@@ -110,13 +77,11 @@ const Video = ({ data, episode, first }) => {
     <div className="video">
       <ReactHlsPlayer
         src={`${media}`}
-        type="application/x-mpegURL"
         autoPlay={false}
         controls={true}
         width="100%"
         height="auto"
-        // outline="none"
-        crossOrigin=""
+        // crossOrigin=""
         playsInline
       />
     </div>
