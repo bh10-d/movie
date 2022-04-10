@@ -1,6 +1,6 @@
 import React from "react";
 import ReactHlsPlayer from 'react-hls-player';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import axios from 'axios'
 import './video.styles.css';
@@ -8,6 +8,7 @@ import './video.styles.css';
 const Video = ({ data, episode, first }) => {
   const { c, v } = useParams();
   const [media, setMedia] = useState([]);
+  const [subtitles,setSubtitles] = useState("");
 
   // const handleError = useRef(null);
   //<meta http-equiv="Access-Control-Allow-Origin" content="*" />
@@ -33,6 +34,8 @@ const Video = ({ data, episode, first }) => {
   //     }
   // }, [first || episode || data]);
 
+  console.log(data);
+
 
   const makeAPICall = async () => {
       try {
@@ -50,9 +53,12 @@ const Video = ({ data, episode, first }) => {
 
         
         setMedia(data.data.mediaUrl);
-        compare(data.data.mediaUrl)
+        // setMedia(URL.createObjectURL(data.data.mediaUrl));
+        compare(data.data.mediaUrl);
+        subtitle();
         // console.log({ data })
         // console.log(data.data.mediaUrl)
+        // return media && URL.revokeObjectURL(avatar.preview);
       }
       catch (e) {
         console.log(e)
@@ -72,6 +78,19 @@ const Video = ({ data, episode, first }) => {
   }
 
 
+  const subtitle = ()=>{
+    let listfilm = data.episodeVo;
+    let filter  = listfilm.filter(f=>f.id == episode)
+    .map((list,index) => list.subtitlingList)
+    .map((video,index)=> video[6].subtitlingUrl)
+    // .filter((lang,index) => lang.transleType == 0);
+    setSubtitles(filter);
+    console.log(filter);//[0][6].language
+  }
+
+  // subtitle();
+
+  // console.log(subtitles)
 
   return (
     <div className="video">
@@ -81,9 +100,29 @@ const Video = ({ data, episode, first }) => {
         controls={true}
         width="100%"
         height="auto"
-        // crossOrigin=""
+        crossOrigin="anonymous"
         playsInline
+        // subtitles={
+        //   true
+        //   // subtitles?.map((subtitle) => ({
+        //   //   ...subtitle,
+        //   //   url: subtitleProxy(subtitle.url),
+        //   // })) || []
+
+        // }
+        hlsConfig={{
+          startPosition: 0,
+          enableWebVTT: true,
+          
+        }}
       />
+      {/* <video id="video" width="640" height="auto"controls>
+        <source src="/test.mp4" type="video/mp4"/>
+        <source src={`${media}`} type="application/x-mpegURL"/>
+        <track label="vi" kind="subtitles" srclang="en" src="/testsub.vtt" default/>
+        <track label="Deutsch" kind="subtitles" srclang="de" src="/testsub.vtt"/>
+        <track label="Español" kind="subtitles" srclang="es" src="captions/vtt/sintel-es.vtt"/>
+      </video> */}
     </div>
   )
 }

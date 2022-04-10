@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 /*slider */
@@ -20,12 +20,13 @@ const PreviewList = ({ data }) => {
         setLoading(true);
         if (data != '') {
             setLoading(false);
-            setInfo(data);
+            setTimeout(() => setInfo(data),500)
+            // setInfo(data);
         }
     }, [data]);
 
     if (loading) {
-        return <p>loading...</p>;
+        return <p></p>;
     }
 
     const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");//.map((m,ii)=>{return m.homeSectionName});
