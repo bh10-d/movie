@@ -86,6 +86,8 @@ const PreviewList = ({ data }) => {
                                                         alt={mm.title}
                                                         src={mm.imageUrl}
                                                         effect="opacity"
+                                                        delayTime={500}
+                                                        visibleByDefault={mm.imageUrl === '/landscape.jpg'} />
                                                     />
                                                     <h1  className="text-ellipsis overflow-hidden">{mm.title}</h1>
                                                 </div>
