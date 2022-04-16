@@ -1,5 +1,5 @@
 // import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { Link } from "react-router-dom";
 /*slider */
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 import './previewlist.styles.css';
 
 
-const PreviewList = ({ data }) => {
+const PreviewList = ({data}) => {
     const [info, setInfo] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -20,14 +20,17 @@ const PreviewList = ({ data }) => {
         setLoading(true);
         if (data != '') {
             setLoading(false);
-            setTimeout(() => setInfo(data),500)
-            // setInfo(data);
+            // setTimeout(() => setInfo(data),500)
+            setInfo(data);
         }
     }, [data]);
 
     if (loading) {
         return <p></p>;
     }
+
+    console.log(data);
+
 
     const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");//.map((m,ii)=>{return m.homeSectionName});
     // const extract = info.map((m,ii)=>{return info[ii].homeSectionName})
@@ -56,6 +59,13 @@ const PreviewList = ({ data }) => {
     //      />
 
 
+    const resize = (url)=>{
+        const newsize = `https://images.weserv.nl/?url=${url}&w=175&h=246`;
+        // console.log(newsize);
+        return newsize;
+    }
+
+
 
     return (
         <>
@@ -82,12 +92,12 @@ const PreviewList = ({ data }) => {
                                             <Link to={`/watch/${mm.category}/${mm.id}`}>
                                                 <div className="block_item-movie">
                                                     <LazyLoadImage
-                                                        className=""
+                                                        className="transition duration-500 object-cover"
                                                         alt={mm.title}
-                                                        src={mm.imageUrl}
+                                                        src={resize(mm.imageUrl)}
                                                         effect="opacity"
                                                         delayTime={500}
-                                                        visibleByDefault={mm.imageUrl === '/landscape.jpg'} />
+                                                        visibleByDefault={mm.imageUrl === '/landscape.jpg'}
                                                     />
                                                     <h1  className="text-ellipsis overflow-hidden">{mm.title}</h1>
                                                 </div>
@@ -104,4 +114,4 @@ const PreviewList = ({ data }) => {
     )
 }
 
-export default PreviewList;
+export default memo(PreviewList); // co ve co nhu khong (kien thuc chua chac note hoc lai)
