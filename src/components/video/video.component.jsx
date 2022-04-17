@@ -113,6 +113,11 @@ const Video = ({ data, episode, first }) => {
         hlsConfig={{
           startPosition: 0,
           enableWebVTT: true,
+          enableCEA708Captions: true,
+          captionsTextTrack1Label: "English",
+          captionsTextTrack1LanguageCode: "en",
+          captionsTextTrack2Label: "Spanish",
+          captionsTextTrack2LanguageCode: "es",
           
         }}
       />
