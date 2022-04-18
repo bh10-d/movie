@@ -18,7 +18,7 @@ const lib = [
     {
         id: "3",
         content: "Messages",
-        url: "/chat",
+        url: "https://chatapp-d3.vercel.app/",
         icon: "bx bx-chat"
     },
     {
@@ -45,11 +45,23 @@ const Option = () => {
             </li> */}
             {lib.map(m => (
                 <li key={m.id}>
-                    <Link to={m.url}>
-                        <i className={m.icon}></i>
-                        <span className="links_name">{m.content}</span>
-                    </Link>
-                    <span className="tooltip">{m.content}</span>
+                    {(m.id != 3)?(
+                        <>
+                            <Link to={m.url}>
+                                <i className={m.icon}></i>
+                                <span className="links_name">{m.content}</span>
+                            </Link>
+                            <span className="tooltip text-black">{m.content}</span>
+                        </>
+                    ):(
+                        <>
+                            <a href={m.url}>
+                                <i className={m.icon}></i>
+                                <span className="links_name">{m.content}</span>
+                            </a>
+                            <span className="tooltip text-black">{m.content}</span>
+                        </>
+                    )}
                 </li>
             ))}
             <li className="profile">
