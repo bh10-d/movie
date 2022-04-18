@@ -40,7 +40,7 @@ const Watch = () => {
                 setData(d);
                 setEpisode(d.data.episodeVo[0].id);
                 // console.log(d.data.episodeVo[0].id);
-                console.log(d);
+                // console.log(d);
                 let test = d.data.episodeVo.filter((f,i)=>f.id === d.data.episodeVo[0].id || f.id === e);
                 test.map((m) =>{
                     // console.log(m.definitionList[0].code);
@@ -48,7 +48,7 @@ const Watch = () => {
                 })
                 // console.log(d.data.episodeVo[0].subtitlingList);
                 const {data: {episodeVo}} = d;
-                console.log(episodeVo)
+                // console.log(episodeVo)
                 setSubtitles(episodeVo)
                 let sub = d.data.episodeVo[0].subtitlingList.filter((f,i)=>f.languageAbbr=='vi')
                 // console.log(sub[0].subtitlingUrl)
@@ -74,7 +74,7 @@ const Watch = () => {
             const ex = subtitles.filter(f=>f.id==e);
             const exx = ex[0].subtitlingList.filter((f,i)=>f.languageAbbr=='vi')
             // console.log(ex)
-            console.log(exx)
+            // console.log(exx)
             setSubtitle(exx[0].subtitlingUrl)
         }
     },[e]);

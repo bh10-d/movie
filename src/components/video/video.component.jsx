@@ -26,7 +26,7 @@ const Video = ({ data, episode, first, subtitle }) => {
         setMedia(data.data.mediaUrl);
         compare(data.data.mediaUrl)
         // console.log({ data })
-        console.log(data.data.mediaUrl)
+        // console.log(data.data.mediaUrl)
       }
       catch (e) {
         console.log(e)
@@ -76,18 +76,18 @@ const Video = ({ data, episode, first, subtitle }) => {
         //     console.log("default: ",cstr1)
         // }
         if(cstr1=="http://hw-cdn-play.loklok.tv/"){
-          console.log("case1: ",cstr1)
+          // console.log("case1: ",cstr1)
           return handleErrorVideo(!status)
         }
         if(cstr1=="http://gg-cdn-play.loklok.tv/"){
-          console.log("case2",cstr1)
+          // console.log("case2",cstr1)
           return handleErrorVideo(!status)
         }
         if(cstr1=="https://ali-cdn-play.loklok.t"){
-          console.log("case3: ",cstr1)
+          // console.log("case3: ",cstr1)
         }
         if(cstr1=="http://akm-cdn-play.loklok.tv"){
-          console.log("case4: ",cstr1)
+          // console.log("case4: ",cstr1)
         }
         // else{
         //   console.log("default: ",cstr1)
