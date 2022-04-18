@@ -18,6 +18,8 @@ const Watch = () => {
     // const [media, setMedia] = useState([]);
     const [loading, setLoading] = useState(true);
     const [episode,setEpisode] = useState('');
+    const [subtitles, setSubtitles] = useState('');
+    const [subtitle, setSubtitle] = useState('');
     const [reso,setReso] = useState('')
 
     // let baseUrl1 = 'https://ga-mobile-api.loklok.tv/cms/app/movieDrama/get?id=8084&category=0'; // info phim
@@ -44,6 +46,13 @@ const Watch = () => {
                     // console.log(m.definitionList[0].code);
                     setReso(m.definitionList[0].code);
                 })
+                // console.log(d.data.episodeVo[0].subtitlingList);
+                const {data: {episodeVo}} = d;
+                console.log(episodeVo)
+                setSubtitles(episodeVo)
+                let sub = d.data.episodeVo[0].subtitlingList.filter((f,i)=>f.languageAbbr=='vi')
+                // console.log(sub[0].subtitlingUrl)
+                setSubtitle(sub[0].subtitlingUrl)
             }).finally(setLoading(false));
 
         //cleanup
@@ -60,40 +69,17 @@ const Watch = () => {
 
     useEffect(() => {
         setEpisode(e);
+        // console.log(subtitles);
+        if(subtitles != ''){
+            const ex = subtitles.filter(f=>f.id==e);
+            const exx = ex[0].subtitlingList.filter((f,i)=>f.languageAbbr=='vi')
+            // console.log(ex)
+            console.log(exx)
+            setSubtitle(exx[0].subtitlingUrl)
+        }
     },[e]);
     
     
-    // let baseUrl2 = 'https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=0&contentId=8084&episodeId=37813&definition=GROOT_LD' // coi phim
-    // useEffect(() => {
-    //     console.log(episode);
-    //     const myAbortController = new AbortController();
-    //     if (!loading) {
-    //         let ee = movie.episodeVo[0].id;
-    //         if(typeof(e) === 'undefined'){
-    //             ee = movie.episodeVo[0].id
-    //         }else{
-    //             ee = e;
-    //         }
-    //         fetch(`https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=${c}&contentId=${v}&episodeId=${ee}&definition=GROOT_HD`, { // 37813 //data.data.episodeVo[0].id
-    //             method: 'GET',
-    //             headers: {
-    //                 'Content-type': 'application/json;charset=UTF-8',
-    //                 'lang': 'en',
-    //                 'versioncode': '11',
-    //                 'clienttype': 'ios_jike_default'
-    //             }
-    //         }).then(res => res.json())
-    //             .then(d => {
-    //                 setMedia(d.data);
-    //                 console.log(d);
-    //                 console.log(ee);
-    //             })
-    //     }
-    //     //cleanup
-    //     return () => {
-    //         myAbortController.abort();
-    //     }
-    // }, [e||movie]);
 
     if (loading) {
         return <p>waiting</p>
@@ -114,7 +100,7 @@ const Watch = () => {
                         outline="none"
                     />
                 </div> */}
-                <Video data={movie} episode={e} first={episode}/>
+                <Video data={movie} episode={e} first={episode} subtitle={subtitle}/>
                 <div className="md:pl-[50px] md:pr-[50px] pl-[10px] pr-[10px]">
                     <h1 className="text-[30px]">{movie ? movie.name : "name"}</h1>
                     <h3><span><i className="fa-solid fa-star text-yellow-300"></i></span> {movie ? movie.score : "score"} <i className="fa-solid fa-calendar"></i> {movie ? movie.year : "year"}</h3>
