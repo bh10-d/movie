@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 // import logo from './logo.svg';
 // import './App.css';
-import Navbar from './components/navbar/navbar.component';
+// import Navbar from './components/navbar/navbar.component';
+import Navbart from './components/navbar/navbart.component';
 import Home from './pages/homepage/homepage.component';
 import Watch from './pages/watch/watch.component';
 
@@ -42,10 +43,42 @@ const HomePage = () => {
   //     .finally(() => setLoading(false));
   // }, [progress]);
 
+  const [goToTop,setGoToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll=()=>{
+        setGoToTop(window.scrollY >= 650);
+    }
+    window.addEventListener('scroll',handleScroll);
+    return ()=>{
+        window.removeEventListener('scroll',handleScroll);
+    }
+},[]);
+
+const handleGotoTop = ()=>{
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+
   return (
-    <div>
-      <Navbar />
+    <div className="relative">
+      <Navbart absolute="absolute"/>
       <Home />
+      {goToTop && (
+        <button
+            style={{
+                position: 'fixed',
+                right: 20,
+                bottom: 20,
+                zIndex: 99
+            }}
+            onClick={handleGotoTop}
+        >
+            <div className="animate-bounce">
+              <i className='bx bx-up-arrow-alt text-4xl'></i>
+            </div>
+        </button>
+      )}
     </div>
   )
 }

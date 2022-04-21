@@ -9,7 +9,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'swiper/css';
 import 'swiper/css/navigation';
 //my styles
-import './previewlist.styles.css';
+// import './previewlist.styles.css';
 
 
 const PreviewList = ({data}) => {
@@ -60,6 +60,7 @@ const PreviewList = ({data}) => {
 
 
     const resize = (url)=>{
+        // const newsize = `https://images.weserv.nl/?url=${url}&w=175&h=246`;
         const newsize = `https://images.weserv.nl/?url=${url}&w=175&h=246`;
         // console.log(newsize);
         return newsize;
@@ -78,21 +79,23 @@ const PreviewList = ({data}) => {
                             slidesPerView='auto'
                             slidesPerGroupAuto
                             navigation
-                            spaceBetween={50}
+                            spaceBetween={67}
                         >
                             {
                                 m.recommendContentVOList.map(mm => (
                                     <div key={mm.id} className="pmovie">
                                         <SwiperSlide
                                             style={{
-                                                width: '175px',
+                                                // width: '175px',
+                                                width: '200px',
+                                                // height: '250px'
                                             }}
                                             key={mm.id}
                                         >
                                             <Link to={`/watch/${mm.category}/${mm.id}`}>
-                                                <div className="block_item-movie">
+                                                <div className="block_item-movie hover:text-zinc-500">
                                                     <LazyLoadImage
-                                                        className="transition duration-500 object-cover"
+                                                        className="transition duration-700 object-cover h-[295px] w-[225px]"
                                                         alt={mm.title}
                                                         src={resize(mm.imageUrl)}
                                                         effect="opacity"
