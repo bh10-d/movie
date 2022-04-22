@@ -19,7 +19,7 @@ const HotBanner = ({extract}) => {
                                 className="block w-full opacity-70"
                                 alt="background film"
                             /> */}
-                            <video className="w-full z-50" controls>
+                            <video className="w-full z-50" muted autoPlay>
                                 <source src="/test.mp4" />
                             </video>
                             {/* <div className="absolute md:block">
