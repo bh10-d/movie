@@ -28,11 +28,7 @@ const Navbart = ({absolute}) => {
 
 
     return(
-<<<<<<< HEAD
         <div className={`${absolute} z-50 w-full`}>
-=======
-        <div className="absolute z-50 w-full">
->>>>>>> cba4577a573254ac73174af8849801bd2bb07a54
             <nav className="">
                 <div className={`max-w-full mx-auto px-4`}>
                     <div className="flex justify-between">
@@ -44,16 +40,10 @@ const Navbart = ({absolute}) => {
                                 </div>
                                 <div className="hidden md:flex items-center space-x-1">
                                     <Link to="/" className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold ">Phim hot</Link>
-<<<<<<< HEAD
                                     <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Phim lẻ</Link>
                                     <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Phim bộ</Link>
                                     <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Phim mới</Link>
                                     <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Tìm kiếm</Link>
-=======
-                                    <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:text-green-500 transition duration-300">Phim lẻ</Link>
-                                    <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:text-green-500 transition duration-300">Phim bộ</Link>
-                                    <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:text-green-500 transition duration-300">Phim mới</Link>
->>>>>>> cba4577a573254ac73174af8849801bd2bb07a54
                                 </div>
                         </div>
                         <div className="hidden md:flex items-center space-x-3">
