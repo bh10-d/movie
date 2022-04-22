@@ -94,7 +94,7 @@ const Video = ({ data, episode, first }) => {
 
   return (
     <div className="video">
-      <ReactHlsPlayer
+      {/* <ReactHlsPlayer
         src={`${media}`}
         autoPlay={false}
         controls={true}
@@ -102,14 +102,6 @@ const Video = ({ data, episode, first }) => {
         height="auto"
         crossOrigin="anonymous"
         playsInline
-        // subtitles={
-        //   true
-        //   // subtitles?.map((subtitle) => ({
-        //   //   ...subtitle,
-        //   //   url: subtitleProxy(subtitle.url),
-        //   // })) || []
-
-        // }
         hlsConfig={{
           startPosition: 0,
           enableWebVTT: true,
@@ -120,14 +112,14 @@ const Video = ({ data, episode, first }) => {
           captionsTextTrack2LanguageCode: "es",
           
         }}
-      />
-      {/* <video id="video" width="640" height="auto"controls>
+      /> */}
+      <video id="video" width="640" height="auto"controls>
         <source src="/test.mp4" type="video/mp4"/>
         <source src={`${media}`} type="application/x-mpegURL"/>
         <track label="vi" kind="subtitles" srclang="en" src="/testsub.vtt" default/>
         <track label="Deutsch" kind="subtitles" srclang="de" src="/testsub.vtt"/>
         <track label="Español" kind="subtitles" srclang="es" src="captions/vtt/sintel-es.vtt"/>
-      </video> */}
+      </video>
     </div>
   )
 }
