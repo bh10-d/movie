@@ -1,9 +1,8 @@
 /* img{
-    width: 50%;
+    width: 100%;
 } */
-.banner{
+/* .banner{
     margin: 20px 10px 20px 20px;
-    /* border-radius: 20px; */
 }
 
 @media screen and (max-width: 420px){
@@ -23,4 +22,4 @@
     width: 100%;
     border-radius: 20px;
     opacity: 0.5;
-}
+} */

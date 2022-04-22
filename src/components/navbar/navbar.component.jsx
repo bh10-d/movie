@@ -77,7 +77,6 @@ const Navbar = () => {
                     <i className="bx bx-search" id="search" onClick={() => handleSmallShow()}></i>
                 </div>
                 <Option />
-                
             </div>
             <div className={`small_search ${smallshow}`}>
                 {/* <h1>Search</h1> */}

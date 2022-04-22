@@ -1,41 +1,14 @@
 import React from "react";
 import ReactHlsPlayer from 'react-hls-player';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 // import axios from 'axios'
 import './video.styles.css';
 
-const Video = ({ data, episode, first }) => {
+const Video = ({ data, episode, first, subtitle }) => {
   const { c, v } = useParams();
   const [media, setMedia] = useState([]);
-  const [subtitles,setSubtitles] = useState("");
-
-  // const handleError = useRef(null);
-  //<meta http-equiv="Access-Control-Allow-Origin" content="*" />
-  // useEffect(() => {
-  //     const myAbortController = new AbortController();
-  //     fetch(`https://ga-mobile-api.loklok.tv/cms/app/media/previewInfo?category=${c}&contentId=${v}&episodeId=${episode||first}&definition=GROOT_HD`, { // 37813 //data.data.episodeVo[0].id
-  //         method: 'GET',
-  //         headers: {
-  //             'Content-type': 'application/json;charset=UTF-8',
-  //             'lang': 'en',
-  //             'versioncode': '11',
-  //             'clienttype': 'ios_jike_default'
-  //         },
-  //     }).then(res => res.json())
-  //         .then(d => {
-  //             setMedia(d.data.mediaUrl);
-  //             console.log(d);
-  //         }).catch((err)=>{console.log(err)});
-
-  //     //cleanup
-  //     return () => {
-  //         myAbortController.abort();
-  //     }
-  // }, [first || episode || data]);
-
-  console.log(data);
-
+  const [status,setStatus] = useState(false);
 
   const makeAPICall = async () => {
       try {
@@ -50,76 +23,116 @@ const Video = ({ data, episode, first }) => {
               },
           });
         const data = await response.json();
-
-        
         setMedia(data.data.mediaUrl);
-        // setMedia(URL.createObjectURL(data.data.mediaUrl));
-        compare(data.data.mediaUrl);
-        subtitle();
+        compare(data.data.mediaUrl)
         // console.log({ data })
         // console.log(data.data.mediaUrl)
-        // return media && URL.revokeObjectURL(avatar.preview);
       }
       catch (e) {
         console.log(e)
       }
     }
-
     useEffect(() => {
       makeAPICall();
     }, [episode||first])
-      
+    
+    
+    const handleErrorVideo = (boo)=>{
+      if(boo){
+        setStatus(true)
+      }else{
+        setStatus(false)
+      }
+    }
+  
+    useEffect(() => {
+      makeAPICall()
+      // let TimerId = setInterval(()=>{
+      //   makeAPICall();
+      // },500) 
+      // return clearInterval(TimerId)
+    },[status])
+
+    // console.log(subtitle)
+
 
   const compare = (str1) => {
     let cstr1 = str1.substr(0,29)
-        if(cstr1 == "http://hw-cdn-play.loklok.tv/" || cstr1 == "http://gg-cdn-play.loklok.tv/"){
-          makeAPICall();
+        // switch(cstr1){
+        //   case "http://hw-cdn-play.loklok.tv/":
+        //     handleErrorVideo(true)
+        //     // setStatus(true)
+        //     console.log("case1: ",cstr1)
+        //   case "http://gg-cdn-play.loklok.tv/":
+        //     handleErrorVideo(true)
+        //     // setStatus(true)
+        //     console.log("case2",cstr1)
+        //   case "https://ali-cdn-play.loklok.t":
+        //     console.log("case3: ",cstr1)
+        //   case "http://akm-cdn-play.loklok.tv":
+        //     console.log("case4: ",cstr1)  
+        //   default:
+        //     handleErrorVideo(false) // hoi vo dung nhung co tac dung :)
+        //     console.log("default: ",cstr1)
+        // }
+        if(cstr1=="http://hw-cdn-play.loklok.tv/"){
+          // console.log("case1: ",cstr1)
+          return handleErrorVideo(!status)
         }
+        if(cstr1=="http://gg-cdn-play.loklok.tv/"){
+          // console.log("case2",cstr1)
+          return handleErrorVideo(!status)
+        }
+        if(cstr1=="https://ali-cdn-play.loklok.t"){
+          // console.log("case3: ",cstr1)
+        }
+        if(cstr1=="http://akm-cdn-play.loklok.tv"){
+          // console.log("case4: ",cstr1)
+        }
+        // else{
+        //   console.log("default: ",cstr1)
+        //   return handleErrorVideo(false) // hoi vo dung nhung co tac dung :)
+        // }
   }
 
 
-  const subtitle = ()=>{
-    let listfilm = data.episodeVo;
-    let filter  = listfilm.filter(f=>f.id == episode)
-    .map((list,index) => list.subtitlingList)
-    .map((video,index)=> video[6].subtitlingUrl)
-    // .filter((lang,index) => lang.transleType == 0);
-    setSubtitles(filter);
-    console.log(filter);//[0][6].language
+
+  const Player = (props) => {
+    return (
+      <ReactHlsPlayer
+        src={`${props.media}`}
+        type="application/x-mpegURL"
+        autoPlay={false}
+        controls={true}
+        width="100%"
+        height="auto"
+        // outline="none"
+        crossOrigin=""
+        playsInline
+      >
+        {props.children}
+      </ReactHlsPlayer>
+    )
   }
 
-  // subtitle();
-
-  // console.log(subtitles)
 
   return (
     <div className="video">
       {/* <ReactHlsPlayer
         src={`${media}`}
+        type="application/x-mpegURL"
         autoPlay={false}
         controls={true}
         width="100%"
         height="auto"
-        crossOrigin="anonymous"
+        crossOrigin=""
         playsInline
-        hlsConfig={{
-          startPosition: 0,
-          enableWebVTT: true,
-          enableCEA708Captions: true,
-          captionsTextTrack1Label: "English",
-          captionsTextTrack1LanguageCode: "en",
-          captionsTextTrack2Label: "Spanish",
-          captionsTextTrack2LanguageCode: "es",
-          
-        }}
-      /> */}
-      <video id="video" width="640" height="auto"controls>
-        <source src="/test.mp4" type="video/mp4"/>
-        <source src={`${media}`} type="application/x-mpegURL"/>
-        <track label="vi" kind="subtitles" srclang="en" src="/testsub.vtt" default/>
-        <track label="Deutsch" kind="subtitles" srclang="de" src="/testsub.vtt"/>
-        <track label="Español" kind="subtitles" srclang="es" src="captions/vtt/sintel-es.vtt"/>
-      </video>
+      >
+        <track label="vi" kind="subtitles" srcLang="en" src="/testsub.vtt" default/>
+      </ReactHlsPlayer> */}
+      <Player media={media}>
+        <track label="vi" kind="subtitles" srcLang="en" src={`https://srt-to-vtt.vercel.app?url=${encodeURIComponent(subtitle)}`} default/>
+      </Player>
     </div>
   )
 }
