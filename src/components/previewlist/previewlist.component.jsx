@@ -109,9 +109,9 @@ const PreviewList = ({data}) => {
     return (
         <>
             {extract.map((m, i) => (
-                <div key={i}>
+                <div key={i} className="mt-5">
                     <h2 className="text-[25px] font-bold">{m.homeSectionName}</h2>
-                    <div className="plist">
+                    <div className="plist mt-2">
                         <Swiper
                             modules={[Navigation]}
                             slidesPerView='auto'

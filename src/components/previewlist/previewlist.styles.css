@@ -11,13 +11,12 @@
     font-weight: bold;
 } */
 
-.block_item-movie {
+/* .block_item-movie {
     height: 360px;
     border-radius: 10px;
     background-color: #393949;
     white-space: nowrap;
     overflow: hidden;
-    /* text-overflow: ellipsis; */
 }
 
 .block_item-movie img{
@@ -28,7 +27,7 @@
 .block_item-movie h1{
     font-size: 20px;
     margin-top: 5px;
-}
+} */
 
 /* .ss_movie{
     display: flex;
@@ -44,8 +43,8 @@
     font-weight: bold;
 } */
 
-@media (max-width: 420px) {
+/* @media (max-width: 420px) {
     .sidebar{
         display: none;
     }
-}
+} */
