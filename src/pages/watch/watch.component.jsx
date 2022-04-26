@@ -58,7 +58,10 @@ const Watch = () => {
             .then(d => {
                 setMovie(d.data);
                 // setData(d);
-                setEpisode(d.data.episodeVo[0].id);
+                if(e==undefined){
+                    setEpisode(d.data.episodeVo[0].id);
+                }
+                // console.log(e==undefined);
                 // console.log(d.data.episodeVo[0].id);
                 console.log(d);
                 // let test = d.data.episodeVo.filter((f,i)=>f.id === d.data.episodeVo[0].id || f.id === e);
@@ -70,9 +73,11 @@ const Watch = () => {
                 const {data: {episodeVo}} = d;
                 // console.log(episodeVo)
                 setSubtitles(episodeVo)
-                let sub = d.data.episodeVo[0].subtitlingList.filter((f,i)=>f.languageAbbr=='vi')
-                // console.log(sub[0].subtitlingUrl)
-                setSubtitle(sub[0].subtitlingUrl)
+                if(e==undefined){
+                    let sub = d.data.episodeVo[0].subtitlingList.filter((f,i)=>f.languageAbbr=='vi')
+                    // console.log(sub[0].subtitlingUrl)
+                    setSubtitle(sub[0].subtitlingUrl)
+                }
             }).finally(setLoading(false));
 
         //cleanup
@@ -97,6 +102,7 @@ const Watch = () => {
             // console.log(exx)
             setSubtitle(exx[0].subtitlingUrl)
         }
+        return setSubtitles('');
     },[e]);
     
     
@@ -104,11 +110,6 @@ const Watch = () => {
     if (loading) {
         return <p>waiting</p>
     }
-
-
-
-
-
 
 
     return (
@@ -132,7 +133,8 @@ const Watch = () => {
                     <div className="md:container">
                         <div className="md:flex">
                             <div className="md:basis-9/12 md:mr-5">
-                                <Video data={movie} episode={e} first={episode} subtitle={subtitle}/>
+                                {/* <Video data={movie} episode={e} first={`${(e==undefined)?episode:e}`} subtitle={subtitle}/> */}
+                                <Video data={movie} episode={e||episode} subtitle={subtitle}/>
                                 <h1 className="text-[30px] text-white-500 font-semibold">{movie ? movie.name : "name"}</h1>
                                 <h3><span><i className="fa-solid fa-star text-yellow-300"></i></span> {movie ? movie.score : "score"} <i className="fa-solid fa-calendar"></i> {movie ? movie.year : "year"}</h3>
                                 <div className="introduce">
