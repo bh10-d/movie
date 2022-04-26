@@ -58,7 +58,7 @@ const PreviewList = ({data}) => {
         }
         return (
             <div>
-                    <h2 className="text-[25px] w-[150px] h-[25px] font-bold bg-slate-600 animate-pulse"></h2>
+                    <h2 className="text-[25px] w-[150px] h-[25px] font-bold bg-slate-600 animate-pulse mt-3 mb-3"></h2>
                     <div className="plist">
                         <Swiper
                             modules={[Navigation]}

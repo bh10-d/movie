@@ -64,7 +64,7 @@ const HotBanner = ({extract}) => {
                             {/* <div className="absolute md:block">
                                 <h5>ashdkjsd</h5>
                             </div> */}
-                            <div className="carousel-caption hidden md:block absolute text-left xl:top-72 sm:top-32">
+                            <div className="carousel-caption hidden md:block absolute w-1/2 text-left xl:top-2/3 sm:top-2/3">
                                 {/* <h5 className="text-4xl">{m.title}</h5> */}
                                 {/* <div className="flex">
                                     <a 

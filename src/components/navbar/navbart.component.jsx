@@ -43,7 +43,8 @@ const Navbart = ({absolute}) => {
                                     <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Phim lẻ</Link>
                                     <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Phim bộ</Link>
                                     <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Phim mới</Link>
-                                    <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Tìm kiếm</Link>
+                                    <Link to="/history" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Lịch sử</Link>
+                                    <Link to="/search" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Tìm kiếm</Link>
                                 </div>
                         </div>
                         <div className="hidden md:flex items-center space-x-3">

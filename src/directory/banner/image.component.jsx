@@ -101,10 +101,9 @@ const ChildBanner = ({src, presrc})=>{
     console.log(movie)
     return (
         <>
-            {/* <img src={movie.coverVerticalUrl} alt="" /> */}
             <div className="flex">
-                <Link 
-                    className={`flex-initial h-[246px] w-[175px] bg-slate-500 ${(loading)?'':"animate-pulse"}`}
+                {/* <Link 
+                    className={`flex-initial h-[246px] w-[175px] bg-slate-500 ${(loading)?"animate-pulse":''}`}
                     to={`/watch/${arr[0].category}/${arr[0].id}`}
                 >
                     <img
@@ -115,15 +114,16 @@ const ChildBanner = ({src, presrc})=>{
                         className="block w-full opacity-100"
                         alt="banner phim"
                     />
-                    {/* <Image src={m.id} presrc={m.jumpAddress}/> */}
-                </Link>
+                </Link> */}
                 <div className="flex-1 ml-16">
                     <p className="mb-7 text-5xl">
                         {movie.name}
                     </p>
-                    <p className="text-lg">
-                        {movie.introduction}
-                    </p>
+                    <div className="h-14 overflow-hidden text-ellipsis">
+                        <p className="text-lg">
+                            {movie.introduction}
+                        </p>
+                    </div>
                     {/* <div className="flex">
                         {
                             (loading)?

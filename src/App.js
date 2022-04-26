@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 import Navbart from './components/navbar/navbart.component';
 import Home from './pages/homepage/homepage.component';
 import Watch from './pages/watch/watch.component';
+import History from './pages/history/history.component';
+import Search from './pages/search/search.component';
 
 const HomePage = () => {
   // const [preview, setPreview] = useState([]);
@@ -90,6 +92,8 @@ function App() {
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/watch/:c/:v" element={<Watch />} />
         <Route exact path="/watch/:c/:v/:e" element={<Watch />} />
+        <Route path="/history" element={<History />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </div>
   );
