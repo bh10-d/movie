@@ -55,11 +55,11 @@ const HomePage = () => {
     return ()=>{
         window.removeEventListener('scroll',handleScroll);
     }
-},[]);
+  },[]);
 
-const handleGotoTop = ()=>{
-  window.scrollTo({top: 0, behavior: 'smooth'});
-}
+  const handleGotoTop = ()=>{
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
 
 
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactHlsPlayer from 'react-hls-player';
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 import { useParams } from "react-router-dom";
 // import axios from 'axios'
 import './video.styles.css';
@@ -116,8 +116,9 @@ const Video = ({ data, episode, first, subtitle }) => {
   }
 
 
+  // video
   return (
-    <div className="video">
+    <div className="">
       {/* <ReactHlsPlayer
         src={`${media}`}
         type="application/x-mpegURL"
@@ -137,4 +138,4 @@ const Video = ({ data, episode, first, subtitle }) => {
   )
 }
 
-export default Video;
+export default memo(Video);
