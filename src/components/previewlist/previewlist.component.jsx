@@ -16,6 +16,7 @@ const PreviewList = ({data}) => {
     const [info, setInfo] = useState([]);
     const [loading, setLoading] = useState(true);
 
+
     useEffect(() => {
         setLoading(true);
         if (data != '') {
@@ -36,11 +37,6 @@ const PreviewList = ({data}) => {
     // const extract = info.map((m,ii)=>{return info[ii].homeSectionName})
     // console.log(info[2].homeSectionName);
     // console.log(extract);
-
-
-
-
-    
 
 
     const resize = (url)=>{
@@ -139,6 +135,7 @@ const PreviewList = ({data}) => {
                                                         effect="opacity"
                                                         delayTime={500}
                                                         visibleByDefault={mm.imageUrl === '/landscape.jpg'}
+                                                        
                                                     />
                                                     <h1  className="text-ellipsis overflow-hidden">{mm.title}</h1>
                                                 </div>

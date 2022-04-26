@@ -68,7 +68,7 @@ const HomePage = () => {
         // </div>
         <div className="">
             <Banner data={preview}/>
-            <div className="container">
+            <div className="md:container">
                 <div className="homepage_block_e">
                     <div className="banner">
                         {/* <Banner data={preview}/> */}
