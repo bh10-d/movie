@@ -63,7 +63,7 @@ const Watch = () => {
                 }
                 // console.log(e==undefined);
                 // console.log(d.data.episodeVo[0].id);
-                console.log(d);
+                // console.log(d);
                 // let test = d.data.episodeVo.filter((f,i)=>f.id === d.data.episodeVo[0].id || f.id === e);
                 // test.map((m) =>{
                 //     // console.log(m.definitionList[0].code);

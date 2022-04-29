@@ -39,7 +39,7 @@ const ChildBanner = ({src, presrc})=>{
 
         let start = presrc.search("=");
         let end = presrc.search("&");
-        console.log(start,end)
+        // console.log(start,end)
         arr.push({
             id: presrc.slice(start+1,end),
             category: presrc.slice(end+6,presrc.length)
@@ -72,7 +72,7 @@ const ChildBanner = ({src, presrc})=>{
                 // setData(d);
                 // setEpisode(d.data.episodeVo[0].id);
                 // console.log(d.data.episodeVo[0].id);
-                console.log(d);
+                // console.log(d);
                 // let test = d.data.episodeVo.filter((f,i)=>f.id === d.data.episodeVo[0].id || f.id === e);
                 // test.map((m) =>{
                 //     // console.log(m.definitionList[0].code);
@@ -97,8 +97,8 @@ const ChildBanner = ({src, presrc})=>{
     }, [arr[0].id]);
 
 
-    console.log(arr)
-    console.log(movie)
+    // console.log(arr)
+    // console.log(movie)
     return (
         <>
             <div className="flex">

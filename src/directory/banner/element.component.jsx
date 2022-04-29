@@ -44,7 +44,7 @@ const HotBanner = ({extract}) => {
 
     // },[])
 
-    console.log("render")
+    // console.log("render")
 
     return (
         <>

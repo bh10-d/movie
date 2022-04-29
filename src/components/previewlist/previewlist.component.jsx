@@ -15,7 +15,19 @@ import 'swiper/css/navigation';
 const PreviewList = ({data}) => {
     const [info, setInfo] = useState([]);
     const [loading, setLoading] = useState(true);
+    // const [job,setJob] = useState('')
 
+    // const [jobs,setJobs] = useState(()=>{
+    //     const check = localStorage.getItem('jobs')
+    //     if(check!==''){
+    //         const JobsLocalStorage = JSON.parse(localStorage.getItem('jobs'))
+    //         console.log(JobsLocalStorage)
+    //         return JobsLocalStorage ?? []
+    //     }else{
+    //         localStorage.removeItem('jobs')
+    //         return []
+    //     }
+    // })
 
     useEffect(() => {
         setLoading(true);
@@ -30,7 +42,21 @@ const PreviewList = ({data}) => {
     //     return <Item/>;
     // }
 
-    console.log(data);
+    // console.log(data);
+
+
+    // const handleClick = (url) => {
+    //     setJob(url);
+    //     setJobs(prev=>{
+    //         const newJobs = [...prev,url]
+    //         const jsonJobs = JSON.stringify(newJobs)
+    //         localStorage.setItem('jobs',jsonJobs)
+    //         return newJobs
+    //     })
+    //     setJob('')
+
+    // }
+
 
 
     const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");//.map((m,ii)=>{return m.homeSectionName});
@@ -126,7 +152,13 @@ const PreviewList = ({data}) => {
                                             }}
                                             key={mm.id}
                                         >
-                                            <Link to={`/watch/${mm.category}/${mm.id}`}>
+                                            <Link 
+                                                to={`/watch/${mm.category}/${mm.id}`} 
+                                                // onClick={()=>{
+                                                //     setJob(`/watch/${mm.category}/${mm.id}`)
+                                                //     handleClick(`/watch/${mm.category}/${mm.id}`)
+                                                // }}
+                                            >
                                                 <div className="block_item-movie hover:text-zinc-500">
                                                     <LazyLoadImage
                                                         className="transition duration-700 object-cover h-[295px] w-[225px]"

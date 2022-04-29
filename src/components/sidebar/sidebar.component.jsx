@@ -20,7 +20,7 @@ const Sidebar = () => {
         }).then(res=>res.json())
         .then(response => {
             setList(response.data.list)
-            console.log(response)
+            // console.log(response)
         })
     },[])
 
