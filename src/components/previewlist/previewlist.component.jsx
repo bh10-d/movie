@@ -17,17 +17,17 @@ const PreviewList = ({data}) => {
     const [loading, setLoading] = useState(true);
     // const [job,setJob] = useState('')
 
-    // const [jobs,setJobs] = useState(()=>{
-    //     const check = localStorage.getItem('jobs')
-    //     if(check!==''){
-    //         const JobsLocalStorage = JSON.parse(localStorage.getItem('jobs'))
-    //         console.log(JobsLocalStorage)
-    //         return JobsLocalStorage ?? []
-    //     }else{
-    //         localStorage.removeItem('jobs')
-    //         return []
-    //     }
-    // })
+    const [jobs,setJobs] = useState(()=>{
+        const check = localStorage.getItem('history')
+        if(check!==''){
+            const JobsLocalStorage = JSON.parse(localStorage.getItem('history'))
+            // console.log(JobsLocalStorage)
+            return JobsLocalStorage ?? []
+        }else{
+            localStorage.removeItem('history')
+            return []
+        }
+    })
 
     useEffect(() => {
         setLoading(true);
@@ -38,24 +38,17 @@ const PreviewList = ({data}) => {
         }
     }, [data]);
 
-    // if (loading) {
-    //     return <Item/>;
-    // }
 
-    // console.log(data);
-
-
-    // const handleClick = (url) => {
-    //     setJob(url);
-    //     setJobs(prev=>{
-    //         const newJobs = [...prev,url]
-    //         const jsonJobs = JSON.stringify(newJobs)
-    //         localStorage.setItem('jobs',jsonJobs)
-    //         return newJobs
-    //     })
-    //     setJob('')
-
-    // }
+    const handleClick = (url) => {
+        setJobs(prev=>{
+            const newJobs = [...prev,url]
+            const jsonJobs = JSON.stringify(newJobs)
+            localStorage.setItem('history',jsonJobs)
+            console.log(prev)
+            return newJobs
+        })
+        // setJob('')
+    }
 
 
 
@@ -155,7 +148,6 @@ const PreviewList = ({data}) => {
                                             <Link 
                                                 to={`/watch/${mm.category}/${mm.id}`} 
                                                 // onClick={()=>{
-                                                //     setJob(`/watch/${mm.category}/${mm.id}`)
                                                 //     handleClick(`/watch/${mm.category}/${mm.id}`)
                                                 // }}
                                             >
