@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, memo } from 'react';
 import '../banner/banner.styles.css';
 import HotBanner from '../../directory/banner/element.component';
+import Loading from '../loading/loading.component';
 // import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Navigation } from "swiper";
 // Import Swiper styles
@@ -9,10 +10,6 @@ import HotBanner from '../../directory/banner/element.component';
 // import 'swiper/css/navigation';
 
 const Banner = ({data}) => {
-
-
-
-
     const [banner, setBanner] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -25,29 +22,10 @@ const Banner = ({data}) => {
     }, [data]);
 
     if (loading) {
-        return (
-            <div id="carouselExampleControls" className="carousel slide relative" data-bs-ride="carousel">
-                <div className="w-full h-screen bg-slate-600 animate-pulse"></div>
-                {/* <HotBanner extract={extract}/> */}
-            </div>
-        );
+        return <Loading typeLoading="banner" />
     }
 
-
-
-
-    // const [banner, setBanner] = useState([]);
-
-    // useEffect(() => {
-    //     if (data != '') {
-    //         setBanner(data);
-    //     }
-    // }, [data]);
-
     const extract = banner.filter((f, i) => f.homeSectionType == 'BANNER');//.map((m,ii)=>{return m.homeSectionName});
-
-
-    // console.log(extract.map((f) =>f.recommendContentVOList));
 
 
     return (

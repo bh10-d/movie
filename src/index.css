@@ -25,6 +25,11 @@ code {
 } */
 
 
+/* img{
+  max-width: none !important;
+} */
+
+
 /*scrollbar*/
 ::-webkit-scrollbar-track
 {

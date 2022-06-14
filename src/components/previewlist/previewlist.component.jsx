@@ -1,10 +1,11 @@
-// import React from "react";
-import { useState, useEffect, memo } from "react";
+import { useState, useEffect, memo, useContext } from "react";
 import { Link } from "react-router-dom";
+import {AppContext} from '../../context/AppProvider';
 /*slider */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Loading from '../loading/loading.component';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -13,113 +14,56 @@ import 'swiper/css/navigation';
 
 
 const PreviewList = ({data}) => {
+    const {setHistory} = useContext(AppContext);
     const [info, setInfo] = useState([]);
     const [loading, setLoading] = useState(true);
-    // const [job,setJob] = useState('')
-
-    const [jobs,setJobs] = useState(()=>{
-        const check = localStorage.getItem('history')
-        if(check!==''){
-            const JobsLocalStorage = JSON.parse(localStorage.getItem('history'))
-            // console.log(JobsLocalStorage)
-            return JobsLocalStorage ?? []
-        }else{
-            localStorage.removeItem('history')
-            return []
-        }
-    })
+    // const [jobs,setJobs] = useState(()=>{
+    //     const check = localStorage.getItem('history')
+    //     if(check!==''){
+    //         const JobsLocalStorage = JSON.parse(localStorage.getItem('history'))
+    //         return JobsLocalStorage ?? []
+    //     }else{
+    //         localStorage.removeItem('history')
+    //         return []
+    //     }
+    // })
 
     useEffect(() => {
         setLoading(true);
         if (data != '') {
             setLoading(false);
-            // setTimeout(() => setInfo(data),500)
             setInfo(data);
         }
     }, [data]);
 
-
     const handleClick = (url) => {
-        setJobs(prev=>{
+        // setJobs(prev=>{
+        //     const newJobs = [...prev,url]
+        //     const jsonJobs = JSON.stringify(newJobs)
+        //     localStorage.setItem('history',jsonJobs)
+        //     // console.log(prev)
+        //     return newJobs
+        // })
+        setHistory(prev=>{
             const newJobs = [...prev,url]
             const jsonJobs = JSON.stringify(newJobs)
             localStorage.setItem('history',jsonJobs)
-            console.log(prev)
+            // console.log(prev)
             return newJobs
         })
-        // setJob('')
     }
 
-
-
-    const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");//.map((m,ii)=>{return m.homeSectionName});
-    // const extract = info.map((m,ii)=>{return info[ii].homeSectionName})
-    // console.log(info[2].homeSectionName);
-    // console.log(extract);
-
+    // const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
+    const extract = info.filter((f, i) => f.homeSectionName != '' && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
 
     const resize = (url)=>{
-        // const newsize = `https://images.weserv.nl/?url=${url}&w=175&h=246`;
         const newsize = `https://images.weserv.nl/?url=${url}&w=175&h=246`;
-        // console.log(newsize);
         return newsize;
     }
 
-    const Item = ()=>{
-
-        let arr = [];
-        for(let i = 0; i < 10; i++) {
-            arr.push({id:i});
-        }
-        return (
-            <div>
-                    <h2 className="text-[25px] w-[150px] h-[25px] font-bold bg-slate-600 animate-pulse mt-3 mb-3"></h2>
-                    <div className="plist">
-                        <Swiper
-                            modules={[Navigation]}
-                            slidesPerView='auto'
-                            slidesPerGroupAuto
-                            navigation
-                            spaceBetween={67}
-                        >
-                            {
-                                arr.map((m,i)=>(
-                                    <div key={m.id} className="pmovie">
-                                        <SwiperSlide
-                                            key={m.id}
-                                            style={{
-                                                // width: '175px',
-                                                width: '200px',
-                                                // height: '250px'
-                                            }}
-                                        >
-                                            <Link key={m.id} to={`/`}>
-                                                <div className="block_item-movie hover:text-zinc-500 bg-slate-600 animate-pulse">
-                                                    <LazyLoadImage
-                                                        className="transition duration-700 object-cover h-[295px]"
-                                                        // alt={mm.title}
-                                                        // src={resize(mm.imageUrl)}
-                                                        effect="opacity"
-                                                        delayTime={500}
-                                                        // visibleByDefault={mm.imageUrl === '/landscape.jpg'}
-                                                    />
-                                                    {/* <h1  className="text-ellipsis w-[100px] h-[25px] overflow-hidden bg-gray-500 animate-pulse"></h1> */}
-                                                </div>
-                                            </Link>
-                                        </SwiperSlide>
-                                    </div>
-                                ))
-                            }
-                        </Swiper>
-                    </div>
-                </div>
-        )
-    }
-
     if (loading) {
-        return <Item/>;
+        return <Loading typeLoading="list"/>;
     }
-
 
     return (
         <>
@@ -132,24 +76,22 @@ const PreviewList = ({data}) => {
                             slidesPerView='auto'
                             slidesPerGroupAuto
                             navigation
-                            spaceBetween={67}
+                            spaceBetween={49}
                         >
                             {
                                 m.recommendContentVOList.map(mm => (
                                     <div key={mm.id} className="pmovie">
                                         <SwiperSlide
                                             style={{
-                                                // width: '175px',
-                                                width: '200px',
-                                                // height: '250px'
+                                                width: '200px'
                                             }}
                                             key={mm.id}
                                         >
                                             <Link 
                                                 to={`/watch/${mm.category}/${mm.id}`} 
-                                                // onClick={()=>{
-                                                //     handleClick(`/watch/${mm.category}/${mm.id}`)
-                                                // }}
+                                                onClick={()=>{
+                                                    handleClick({title: mm.title, imageUrl: mm.imageUrl, category: mm.category, id: mm.id})
+                                                }}
                                             >
                                                 <div className="block_item-movie hover:text-zinc-500">
                                                     <LazyLoadImage
@@ -172,7 +114,6 @@ const PreviewList = ({data}) => {
                     </div>
                 </div>
             ))}
-            {/* <Item/> */}
         </>
     )
 }

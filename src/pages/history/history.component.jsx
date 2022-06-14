@@ -5,6 +5,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Navbart from '../../components/navbar/navbart.component';
+import Loading from '../../components/loading/loading.component';
+import {AppContext} from '../../context/AppProvider';
 
 const Item = ()=>{
 
@@ -60,6 +62,8 @@ const Item = ()=>{
 
 const History = ()=>{
 
+    const {history} = React.useContext(AppContext);
+
     const handleClick = ()=>{
         const newJobs = ["asd","alshjdkjh"]
         const jsonJobs = JSON.stringify(newJobs)
@@ -67,50 +71,42 @@ const History = ()=>{
         return newJobs
     }
 
+    const resize = (url)=>{
+        const newsize = `https://images.weserv.nl/?url=${url}&w=175&h=246`;
+        return newsize;
+    }
+    // console.log(history)
 
     return (
         <>
             <Navbart/>
             <div className="container">
                 {/* <Item/> */}
-                <div className="flex">
-                    <div>
-                        <div className="w-44 h-60 bg-slate-50 mr-3 text-slate-900 relative">
-                            <button className="right-0 text-slate-900 bg-slate-400 font-semibold absolute opacity-70" onClick={handleClick}>Xoá</button>
-                            <img src="" alt="askjdh" />
-                        </div>
-                        <h1 className="text-slate-300">ten phim</h1>
-                    </div>
-                    <div>
-                        <div className="w-44 h-60 bg-slate-50 mr-3 text-slate-900 relative">
-                            <p className="right-0 text-slate-900 bg-slate-400 font-semibold absolute opacity-70">Xoá</p>
-                            <img src="" alt="askjdh" />
-                        </div>
-                        <h1 className="text-slate-300">ten phim</h1>
-                    </div>
-                    <div>
-                        <div className="w-44 h-60 bg-slate-50 mr-3 text-slate-900 relative">
-                            <p className="right-0 text-slate-900 bg-slate-400 font-semibold absolute opacity-70">Xoá</p>
-                            <img src="" alt="askjdh" />
-                        </div>
-                        <h1 className="text-slate-300">ten phim</h1>
-                    </div>
-                    <div>
-                        <div className="w-44 h-60 bg-slate-50 mr-3 text-slate-900 relative">
-                            <p className="right-0 text-slate-900 bg-slate-400 font-semibold absolute opacity-70">Xoá</p>
-                            <img src="" alt="askjdh" />
-                        </div>
-                        <h1 className="text-slate-300">ten phim</h1>
-                    </div>
-                    <div>
-                        <div className="w-44 h-60 bg-slate-50 mr-3 text-slate-900 relative">
-                            <p className="right-0 text-slate-900 bg-slate-400 font-semibold absolute opacity-70">Xoá</p>
-                            <img src="" alt="askjdh" />
-                        </div>
-                        <h1 className="text-slate-300">ten phim</h1>
-                    </div>
+                <div className="grid gap-2 grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-items-center">
+                    {history.map((m, i)=>(
+                        // <div key={i}>
+                        //     <div className="w-44 h-60 bg-slate-50 mr-3 text-slate-900 relative">
+                        //         <button className="right-0 text-slate-900 bg-slate-400 font-semibold absolute opacity-70" onClick={handleClick}>Xoá</button>
+                        //         <img src={m.imageUrl} alt="askjdh" />
+                        //     </div>
+                        //     <h1 className="text-slate-300 mt-3">{m.title}</h1>
+                        // </div>
+                        <Link className="md:w-[225px]" to={`/watch/${m.category}/${m.id}`} key={i}>
+                            <div className="block_item-movie hover:text-zinc-500 overflow-hidden">
+                                <LazyLoadImage
+                                    className="transition duration-700 object-cover h-[295px] w-[225px]"
+                                    alt={m.title}
+                                    src={resize(m.imageUrl)}
+                                    effect="opacity"
+                                    delayTime={1000}
+                                />
+                                <h1 className="text-ellipsis mb-3">{m.title}</h1>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </div>
+            {/* <Loading typeLoading="list"/> */}
         </>
     )
 }

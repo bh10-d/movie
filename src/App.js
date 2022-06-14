@@ -10,6 +10,7 @@ import Home from './pages/homepage/homepage.component';
 import Watch from './pages/watch/watch.component';
 import History from './pages/history/history.component';
 import Search from './pages/search/search.component';
+import AppProvider from './context/AppProvider';
 
 const HomePage = () => {
   // const [preview, setPreview] = useState([]);
@@ -88,13 +89,15 @@ const HomePage = () => {
 function App() {
   return (
     <div>
-      <Routes>
-        <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/watch/:c/:v" element={<Watch />} />
-        <Route exact path="/watch/:c/:v/:e" element={<Watch />} />
-        <Route path="/history" element={<History />} />
-        <Route path="/search" element={<Search />} />
-      </Routes>
+        <AppProvider>
+          <Routes>
+              <Route exact path="/" element={<HomePage />} />
+              <Route exact path="/watch/:c/:v" element={<Watch />} />
+              <Route exact path="/watch/:c/:v/:e" element={<Watch />} />
+              <Route path="/history" element={<History />} />
+              <Route path="/search" element={<Search />} />
+          </Routes>
+        </AppProvider>
     </div>
   );
 }
