@@ -16,6 +16,7 @@ const Watch = () => {
     // console.log(e);
     // const [data, setData] = useState([]);
     const [movie, setMovie] = useState('');
+    const [showIntro,setShowIntro] = React.useState(false);
     // const [media, setMedia] = useState([]);
     const [loading, setLoading] = useState(true);
     const [episode,setEpisode] = useState('');
@@ -92,18 +93,15 @@ const Watch = () => {
 
     // console.log('tap',episode)
 
-    useEffect(() => {
-        setEpisode(e);
-        // console.log(subtitles);
-        if(subtitles != ''){
-            const ex = subtitles.filter(f=>f.id==e);
-            const exx = ex[0].subtitlingList.filter((f,i)=>f.languageAbbr=='vi')
-            // console.log(ex)
-            // console.log(exx)
-            setSubtitle(exx[0].subtitlingUrl)
-        }
-        return setSubtitles('');
-    },[e]);
+    // useEffect(() => {
+    //     setEpisode(e);
+    //     if(subtitles != ''){
+    //         const ex = subtitles.filter(f=>f.id==e);
+    //         const exx = ex[0].subtitlingList.filter((f,i)=>f.languageAbbr=='vi')
+    //         setSubtitle(exx[0].subtitlingUrl)
+    //     }
+    //     return setSubtitles('');
+    // },[e]);
     
     
 
@@ -137,10 +135,15 @@ const Watch = () => {
                                 <Video data={movie} episode={e||episode} subtitle={subtitle}/>
                                 <h1 className="text-[30px] text-white-500 font-semibold">{movie ? movie.name : "name"}</h1>
                                 <h3><span><i className="fa-solid fa-star text-yellow-300"></i></span> {movie ? movie.score : "score"} <i className="fa-solid fa-calendar"></i> {movie ? movie.year : "year"}</h3>
-                                <div className="introduce">
-                                    <p>{movie ? movie.introduction : "introduction"}</p>
+                                <div className="mb-4">
+                                    <p className={`${(showIntro)?"":"h-[70px]"} overflow-hidden`}>{movie ? movie.introduction : "introduction"}</p>
+                                    <div className="text-center">
+                                        <button onClick={()=>{setShowIntro(!showIntro)}}>{(showIntro)?<i className="fa-solid fa-chevron-up"></i>:<i className="fa-solid fa-chevron-down"></i>}</button>
+                                    </div>
                                 </div>
-                                <Episode ep={movie.episodeVo} first={episode}/>
+                                <div>
+                                    <Episode ep={movie.episodeVo} first={episode}/>
+                                </div>
                             </div>
                             <div className="md:basis-3/12 invisible md:visible">
                                 <div style={{marginLeft:'-10px'}}>
