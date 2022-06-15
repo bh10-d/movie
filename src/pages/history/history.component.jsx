@@ -20,7 +20,6 @@ const History = ()=>{
         const newsize = `https://images.weserv.nl/?url=${url}&w=175&h=246`;
         return newsize;
     }
-    console.log(history)
 
     return (
         <>
