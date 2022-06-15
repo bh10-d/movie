@@ -138,7 +138,7 @@ const Watch = () => {
                                 <div className="mb-4">
                                     <p className={`${(showIntro)?"":"h-[70px]"} overflow-hidden`}>{movie ? movie.introduction : "introduction"}</p>
                                     <div className="text-center">
-                                        <button onClick={()=>{setShowIntro(!showIntro)}}>{(showIntro)?<i className="fa-solid fa-chevron-up"></i>:<i className="fa-solid fa-chevron-down"></i>}</button>
+                                        <button className="w-full" onClick={()=>{setShowIntro(!showIntro)}}>{(showIntro)?<i className="fa-solid fa-chevron-up"></i>:<i className="fa-solid fa-chevron-down"></i>}</button>
                                     </div>
                                 </div>
                                 <div>
