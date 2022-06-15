@@ -28,7 +28,7 @@ const History = ()=>{
                 <h2 className="font-bold text-xl mt-4 mb-4">{(history.length != 0)?"Phim mà các cậu đã xem đấy":"Các cậu chưa xem phim nào cả"}</h2>
                 <div className="grid gap-2 grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 justify-items-center">
                     {history.map((m, i)=>(
-                        <div className="block_item-movie hover:text-zinc-500 overflow-hidden relative">
+                        <div className="block_item-movie hover:text-zinc-500 overflow-hidden relative" key={i}>
                             <button className="right-0 text-slate-900 bg-slate-400 font-semibold absolute opacity-70 z-99" onClick={() =>{ handleClick(m.id)}}>Xoá</button>
                             <Link className="md:w-[225px]" to={`/watch/${m.category}/${m.id}`} key={i}>
                                 <LazyLoadImage

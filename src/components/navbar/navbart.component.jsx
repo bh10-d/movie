@@ -28,9 +28,9 @@ const Navbart = ({absolute}) => {
                                 </div>
                                 <div className="hidden md:flex items-center space-x-1">
                                     <Link to="/" className={`py-4 px-2 ${(content.pathname.length == 1)?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim hot</Link>
-                                    <Link to="/" className={`py-4 px-2 ${(content.pathname.includes('odd'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim lẻ</Link>
-                                    <Link to="/" className={`py-4 px-2 ${(content.pathname.includes('series'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim bộ</Link>
-                                    <Link to="/" className={`py-4 px-2 ${(content.pathname.includes('new'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim mới</Link>
+                                    <Link to="/odd" className={`py-4 px-2 ${(content.pathname.includes('odd'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim lẻ</Link>
+                                    <Link to="/series" className={`py-4 px-2 ${(content.pathname.includes('series'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim bộ</Link>
+                                    <Link to="/new" className={`py-4 px-2 ${(content.pathname.includes('new'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim mới</Link>
                                     <Link to="/history" className={`py-4 px-2 ${(content.pathname.includes('history'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Lịch sử</Link>
                                     <Link to="/search" className={`py-4 px-2 ${(content.pathname.includes('search'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Tìm kiếm</Link>
                                 </div>
@@ -61,9 +61,9 @@ const Navbart = ({absolute}) => {
                 <div className={`${(show)?null:'hidden'} bg-slate-600`}>
                     <ul className="">
                         <li className="active"><a href="index.html" className="block text-sm px-2 py-4 text-white bg-green-500 font-semibold">Phim hot</a></li>
-                        <li><a href="#services" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Phim lẻ</a></li>
-                        <li><a href="#about" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Phim bộ</a></li>
-                        <li><a href="#contact" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Phim mới</a></li>
+                        <li><a href="/odd" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Phim lẻ</a></li>
+                        <li><a href="/series" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Phim bộ</a></li>
+                        <li><a href="/new" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Phim mới</a></li>
                         <li><a href="/history" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Lịch sử</a></li>
                         <li><a href="/search" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Tìm kiếm</a></li>
                         <li><a href="#contact" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Đăng nhập</a></li>
