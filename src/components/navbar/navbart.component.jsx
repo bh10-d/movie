@@ -1,22 +1,11 @@
 import {React, useState, useEffect} from "react";
-import {Link,useNavigate} from "react-router-dom";
+import {Link, useParams, useLocation} from "react-router-dom";
 import '../navbar/navbart.styles.css';
 
 
-// function H(){
-//     const navigate = useNavigate();
-//     navigate('/');
-//     return <></>
-// }
-
-
-
 const Navbart = ({absolute}) => {
-    // const navigation = useNavigate();
-    // navigation('/');
-
     const [show, setShow] = useState(false);
-
+    const [content, setContent] = useState(useLocation());
 
     const handleShowMenu = (showw)=>{
         if(showw) {
@@ -25,7 +14,6 @@ const Navbart = ({absolute}) => {
             setShow("");
         }
     }
-
 
     return(
         <div className={`${absolute} z-50 w-full`}>
@@ -39,12 +27,12 @@ const Navbart = ({absolute}) => {
                                     </Link>
                                 </div>
                                 <div className="hidden md:flex items-center space-x-1">
-                                    <Link to="/" className="py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold ">Phim hot</Link>
-                                    <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Phim lẻ</Link>
-                                    <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Phim bộ</Link>
-                                    <Link to="/" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Phim mới</Link>
-                                    <Link to="/history" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Lịch sử</Link>
-                                    <Link to="/search" className="py-4 px-2 text-white-500 font-semibold hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300">Tìm kiếm</Link>
+                                    <Link to="/" className={`py-4 px-2 ${(content.pathname.length == 1)?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim hot</Link>
+                                    <Link to="/" className={`py-4 px-2 ${(content.pathname.includes('odd'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim lẻ</Link>
+                                    <Link to="/" className={`py-4 px-2 ${(content.pathname.includes('series'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim bộ</Link>
+                                    <Link to="/" className={`py-4 px-2 ${(content.pathname.includes('new'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Phim mới</Link>
+                                    <Link to="/history" className={`py-4 px-2 ${(content.pathname.includes('history'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Lịch sử</Link>
+                                    <Link to="/search" className={`py-4 px-2 ${(content.pathname.includes('search'))?"text-green-500 border-b-4 border-green-500":"hover:border-b-4 hover:border-green-500 hover:text-green-500 transition duration-300"} font-semibold `}>Tìm kiếm</Link>
                                 </div>
                         </div>
                         <div className="hidden md:flex items-center space-x-3">
