@@ -14,20 +14,10 @@ import 'swiper/css/navigation';
 
 
 const PreviewList = ({data}) => {
-    const {setHistory} = useContext(AppContext);
+    const {history, setHistory} = useContext(AppContext);
     const [info, setInfo] = useState([]);
     const [loading, setLoading] = useState(true);
-    // const [jobs,setJobs] = useState(()=>{
-    //     const check = localStorage.getItem('history')
-    //     if(check!==''){
-    //         const JobsLocalStorage = JSON.parse(localStorage.getItem('history'))
-    //         return JobsLocalStorage ?? []
-    //     }else{
-    //         localStorage.removeItem('history')
-    //         return []
-    //     }
-    // })
-
+    
     useEffect(() => {
         setLoading(true);
         if (data != '') {
@@ -37,20 +27,19 @@ const PreviewList = ({data}) => {
     }, [data]);
 
     const handleClick = (url) => {
-        // setJobs(prev=>{
-        //     const newJobs = [...prev,url]
-        //     const jsonJobs = JSON.stringify(newJobs)
-        //     localStorage.setItem('history',jsonJobs)
-        //     // console.log(prev)
-        //     return newJobs
-        // })
         setHistory(prev=>{
             const newJobs = [...prev,url]
-            const jsonJobs = JSON.stringify(newJobs)
+            const jsonJobs = JSON.stringify(removeduplicates(newJobs.reverse()))
             localStorage.setItem('history',jsonJobs)
             // console.log(prev)
-            return newJobs
+            return removeduplicates(newJobs.reverse())
         })
+    }
+
+    const removeduplicates = (arr) => {
+        var uniq = {};
+        var arrFiltered = arr.filter(obj => !uniq[obj.id] && (uniq[obj.id] = true));
+        return arrFiltered;
     }
 
     // const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
