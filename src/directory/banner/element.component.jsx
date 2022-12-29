@@ -49,6 +49,9 @@ const HotBanner = ({extract}) => {
     return (
         <>
             <div className="carousel-inner relative w-full overflow-hidden">
+                <div className="carousel-item relative float-left w-full bannerr active">
+                    <img src="./banner1.jpg" alt="" className="block w-full opacity-50" />
+                </div>
                     {extract.map(m=>m.recommendContentVOList.filter((f,i)=>f.title != '' && f.title != 'Sound Track 1' && f.title != 'Invite friends get prizes ~').map((m,i)=>(
                         <div key={i} className={(i==0)?'carousel-item relative float-left w-full bannerr active':'carousel-item relative float-left w-full bannerr'}>
                             <img

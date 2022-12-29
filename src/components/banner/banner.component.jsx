@@ -21,9 +21,9 @@ const Banner = ({data}) => {
         }
     }, [data]);
 
-    if (loading) {
-        return <Loading typeLoading="banner" />
-    }
+    // if (loading) {
+    //     return <Loading typeLoading="banner" />
+    // }
 
     const extract = banner.filter((f, i) => f.homeSectionType == 'BANNER');//.map((m,ii)=>{return m.homeSectionName});
 
@@ -32,6 +32,7 @@ const Banner = ({data}) => {
         <div>
             {/* <img src="./banner1.jpg" alt="" /> */}
             <div id="carouselExampleControls" className="carousel slide relative" data-bs-ride="carousel">
+            {/* <img src="./banner1.jpg" alt="" /> */}
                 <HotBanner extract={extract}/>
                 <button
                     className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"

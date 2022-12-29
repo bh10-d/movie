@@ -49,7 +49,7 @@ const HomePage = () => {
                     <div className="banner">
                     </div>
                     <div className="preview_list">
-                        <InfiniteScroll
+                        {/* <InfiniteScroll
                           dataLength={[].concat.apply([], datafilm).length || 0}
                           next={() => setPage((prev) => prev + 1)}
                           hasMore={true}
@@ -57,7 +57,8 @@ const HomePage = () => {
                           scrollableTarget="scrollableDiv"
                         >
                           <PreviewList data={[].concat.apply([], datafilm)}/>
-                        </InfiniteScroll>
+                        </InfiniteScroll> */}
+                        <PreviewList data={[].concat.apply([], datafilm)}/>
                     </div>
                 </div>
             </div>
