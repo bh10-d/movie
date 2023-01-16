@@ -1,5 +1,5 @@
 import React from "react";
-import ReactHlsPlayer from 'react-hls-player';
+// import ReactHlsPlayer from 'react-hls-player';
 import { useState, useEffect, memo } from "react";
 import { useParams } from "react-router-dom";
 // import axios from 'axios'
@@ -101,19 +101,20 @@ const Video = ({ data, episode, first, subtitle }) => {
 
   const Player = (props) => {
     return (
-      <ReactHlsPlayer
-        src={`${props.media}`}
-        type="application/x-mpegURL"
-        autoPlay={false}
-        controls={true}
-        width="100%"
-        height="auto"
-        // outline="none"
-        crossOrigin=""
-        playsInline
-      >
-        {props.children}
-      </ReactHlsPlayer>
+      <></>
+      // <ReactHlsPlayer
+      //   src={`${props.media}`}
+      //   type="application/x-mpegURL"
+      //   autoPlay={false}
+      //   controls={true}
+      //   width="100%"
+      //   height="auto"
+      //   // outline="none"
+      //   crossOrigin=""
+      //   playsInline
+      // >
+      //   {props.children}
+      // </ReactHlsPlayer>
     )
   }
 

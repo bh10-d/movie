@@ -44,22 +44,24 @@ const HotBanner = ({extract}) => {
 
     // },[])
 
-    // console.log("render")
+    console.log(extract)
+
+    extract = extract.filter(f=> f.backdrop_path != null);
 
     return (
         <>
             <div className="carousel-inner relative w-full overflow-hidden">
-                <div className="carousel-item relative float-left w-full bannerr active">
+                {/* <div className="carousel-item relative float-left w-full bannerr active">
                     <img src="./banner1.jpg" alt="" className="block w-full opacity-50" />
-                </div>
-                    {extract.map(m=>m.recommendContentVOList.filter((f,i)=>f.title != '' && f.title != 'Sound Track 1' && f.title != 'Invite friends get prizes ~').map((m,i)=>(
+                </div> */}
+                    {extract.map((m,i)=>(
                         <div key={i} className={(i==0)?'carousel-item relative float-left w-full bannerr active':'carousel-item relative float-left w-full bannerr'}>
                             <img
                                 // src={resize(m.imageUrl)}
                                 // src={m.imageUrl}
-                                src={m.imageUrl}
+                                src={`https://image.tmdb.org/t/p/original${m.backdrop_path}`}
                                 className="block w-full opacity-50"
-                                alt="background film"
+                                alt={m.title}
                             />
                             {/* <video className="w-full z-50" muted autoPlay>
                                 <source src="/test.mp4" />
@@ -100,10 +102,20 @@ const HotBanner = ({extract}) => {
                                     <source src="/test.mp4" />
                                 </video> */}
 
-                                <ChildBanner src={m.id} presrc={m.jumpAddress}/>
+                                {/* <ChildBanner src={m.id} presrc={m.jumpAddress}/> */}
+                                <div
+                                        className="flex-1 "
+                                    >
+                                        <p className="mb-7 text-5xl">
+                                            {m.title}
+                                        </p>
+                                        <p className="text-base">
+                                           {m.overview}
+                                        </p>
+                                    </div>
                             </div>
                         </div>
-                    )))}
+                    ))}
                     {/* <div key="1" className="carousel-item active relative float-left w-full bannerr">
                         <img
                             src={`${extract[1].recommendContentVOList[4].imageUrl}`}

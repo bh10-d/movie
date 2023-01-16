@@ -5,7 +5,7 @@ export const AppContext = React.createContext();
 
 export default function AppProvider({children}){
 
-    const [page,setPage] = useState(2);
+    const [page,setPage] = useState(1);
     const [datafilm,setDataFilm] = useState([]);
     const [history,setHistory] = useState(()=>{
         const check = localStorage.getItem('history')

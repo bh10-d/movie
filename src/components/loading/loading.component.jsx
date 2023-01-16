@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Loading = ({ typeLoading }) => {
     const List = ()=>{
@@ -12,31 +12,31 @@ const Loading = ({ typeLoading }) => {
         }
         return (
             <div>
-                <h2 className="text-[25px] w-[150px] h-[25px] font-bold bg-slate-600 animate-pulse mt-3 mb-3"></h2>
-                <div className="plist">
+                <h2 className="text-[25px] w-[150px] h-[25px] font-bold bg-slate-600 animate-pulse mt-3 mb-3 xl:ml-24"></h2>
+                <div className="mb-5 xl:mr-24 xl:ml-24">
                     <Swiper
                         modules={[Navigation]}
-                        slidesPerView='auto'
-                        slidesPerGroupAuto
+                        slidesPerView='4'
                         navigation
-                        spaceBetween={67}
+                        spaceBetween={100}
                     >
                         {
                             arr.map((m,i)=>(
                                 <div key={m.id} className="pmovie">
                                     <SwiperSlide
                                         key={m.id}
-                                        style={{
-                                            width: '200px',
-                                        }}
+                                        // style={{
+                                        //     width: '200px',
+                                        // }}
                                     >
                                         <Link key={m.id} to={`/`}>
                                             <div className="block_item-movie hover:text-zinc-500 bg-slate-600 animate-pulse">
-                                                <LazyLoadImage
+                                                {/* <LazyLoadImage
                                                     className="transition duration-700 object-cover h-[295px]"
                                                     effect="opacity"
                                                     delayTime={500}
-                                                />
+                                                /> */}
+                                                <div className="transition duration-700 object-cover h-[270px] xl:h-[370px]"></div>
                                             </div>
                                         </Link>
                                     </SwiperSlide>

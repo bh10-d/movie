@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Navbart from '../../components/navbar/navbart.component';
 
 
@@ -67,13 +67,13 @@ const Search = ()=>{
                         return (
                             <Link className="md:w-[225px]" to={`/watch/${converttype(m.dramaType.name)}/${m.id}`} key={m.id}>
                                 <div className="block_item-movie hover:text-zinc-500 overflow-hidden">
-                                    <LazyLoadImage
+                                    {/* <LazyLoadImage
                                         className="transition duration-700 object-cover h-[295px] w-[225px]"
                                         alt={m.name}
                                         src={resize(m.coverVerticalUrl)}
                                         effect="opacity"
                                         delayTime={1000}
-                                    />
+                                    /> */}
                                     <h1 className="text-ellipsis ">{m.name}</h1>
                                 </div>
                             </Link>
