@@ -21,9 +21,9 @@ const Banner = ({data}) => {
         }
     }, [data]);
 
-    // if (loading) {
-    //     return <Loading typeLoading="banner" />
-    // }
+    if (loading) {
+        return <Loading typeLoading="banner" />
+    }
 
     // const extract = banner.filter((f, i) => f.homeSectionType == 'BANNER');//.map((m,ii)=>{return m.homeSectionName});
 

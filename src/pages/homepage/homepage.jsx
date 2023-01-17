@@ -13,6 +13,7 @@ const HomePage = () => {
   const { page, setPage, datafilm, setDataFilm } = React.useContext(AppContext)
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    // setPage(page);
     getData();
   }, [page]);
 

@@ -5,7 +5,7 @@ import { AppContext } from '../../context/AppProvider';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
-// import Loading from '../loading/loading.component';
+import Loading from '../loading/loading.component';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -54,19 +54,19 @@ const PreviewList = ({ data }) => {
         return newsize;
     }
 
-    // if (loading) {
-    //     return <Loading typeLoading="list"/>;
-    // }
+    if (loading) {
+        return <Loading typeLoading="list"/>;
+    }
 
     return (
         <>
             {/* {data.map((m, i) => ( */}
             <div className="mt-5">
                 {/* <h2 className="text-[25px] font-bold">{m.homeSectionName}</h2> */}
-                <div className="mt-2 xl:mr-24 xl:ml-24 grid grid-cols-4">
+                <div className="mt-2 xl:mr-24 xl:ml-24 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
                     {
                         datafilter.map(m => (
-                            <div key={m.id} className="xl:mx-2 xl:my-3">
+                            <div key={m.id} className="mx-1 my-2 xl:mx-2 xl:my-3">
                                 {/* <SwiperSlide
                                         style={{
                                             width: '200px'
