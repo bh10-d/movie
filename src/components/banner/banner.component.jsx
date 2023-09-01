@@ -22,6 +22,7 @@ const Banner = ({ data }) => {
 
     // const extract = banner.filter((f, i) => f.homeSectionType == 'BANNER');//.map((m,ii)=>{return m.homeSectionName});
 
+    console.log(data);
 
     return (
         <div>

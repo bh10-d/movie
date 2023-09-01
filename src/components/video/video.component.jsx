@@ -1,5 +1,5 @@
 import React from "react";
-import ReactHlsPlayer from 'react-hls-player';
+// import ReactHlsPlayer from 'react-hls-player';
 import { useState, useEffect, memo } from "react";
 import { useParams } from "react-router-dom";
 // import axios from 'axios'

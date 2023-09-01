@@ -1,13 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Navbart from './components/navbar/navbart.component';
-import Home from './pages/homepage/homepage.component';
-import Watch from './pages/watch/watch.component';
-import History from './pages/history/history.component';
-import Search from './pages/search/search.component';
-import OddMovie from './pages/odd/OddMovie.component';
-import NewMovie from './pages/new/NewMovie.component';
-import SeriesMovie from './pages/series/SeriesMovie.component';
+import Home from './pages/homepage/homepage';
+import Watch from './pages/watch/watch';
+import History from './pages/history/history';
+import Search from './pages/search/search';
+import OddMovie from './pages/odd/OddMovie';
+import NewMovie from './pages/new/NewMovie';
+import SeriesMovie from './pages/series/SeriesMovie';
 import AppProvider from './context/AppProvider';
 
 const HomePage = () => {

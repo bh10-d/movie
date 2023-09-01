@@ -1,6 +1,6 @@
 import { useState, useEffect, memo, useContext } from "react";
 import { Link } from "react-router-dom";
-import {AppContext} from '../../context/AppProvider';
+import { AppContext } from '../../context/AppProvider';
 /*slider */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper/modules";
@@ -13,11 +13,12 @@ import 'swiper/css/navigation';
 // import './previewlist.styles.css';
 
 
-const PreviewList = ({data}) => {
-    const {history, setHistory} = useContext(AppContext);
+const PreviewList = ({ data }) => {
+    const { history, setHistory } = useContext(AppContext);
     const [info, setInfo] = useState([]);
     const [loading, setLoading] = useState(true);
-    
+
+    // console.log(data);
     useEffect(() => {
         setLoading(true);
         if (data != '') {
@@ -26,15 +27,15 @@ const PreviewList = ({data}) => {
         }
     }, [data]);
 
-    const handleClick = (url) => {
-        setHistory(prev=>{
-            const newJobs = [...prev,url]
-            const jsonJobs = JSON.stringify(removeduplicates(newJobs.reverse()))
-            localStorage.setItem('history',jsonJobs)
-            // console.log(prev)
-            return removeduplicates(newJobs.reverse())
-        })
-    }
+    // const handleClick = (url) => {
+    //     setHistory(prev=>{
+    //         const newJobs = [...prev,url]
+    //         const jsonJobs = JSON.stringify(removeduplicates(newJobs.reverse()))
+    //         localStorage.setItem('history',jsonJobs)
+    //         // console.log(prev)
+    //         return removeduplicates(newJobs.reverse())
+    //     })
+    // }
 
     const removeduplicates = (arr) => {
         var uniq = {};
@@ -45,7 +46,10 @@ const PreviewList = ({data}) => {
     // const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
     // const extract = info.filter((f, i) => f.homeSectionName != '' && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
 
-    const resize = (url)=>{
+    // const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
+    // const extract = info.filter((f, i) => f.homeSectionName != '' && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
+
+    const resize = (url) => {
         const newsize = `https://images.weserv.nl/?url=${url}&w=175&h=246`;
         return newsize;
     }
@@ -134,4 +138,6 @@ const PreviewList = ({data}) => {
     )
 }
 
-export default memo(PreviewList); // co ve co nhu khong (kien thuc chua chac note hoc lai)
+// export default memo(PreviewList); // co ve co nhu khong (kien thuc chua chac note hoc lai)
+
+export default PreviewList;

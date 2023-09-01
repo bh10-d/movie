@@ -36,8 +36,8 @@ const Navbart = ({absolute}) => {
                                 </div>
                         </div>
                         <div className="hidden md:flex items-center space-x-3">
-                            <a href="" className="py-2 px-2 font-medium text-white rounded hover:bg-green-500 hover:text-white transition duration-300">Đăng nhập</a>
-                            <a href="" className="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Đăng ký</a>
+                            {/* <a href="" className="py-2 px-2 font-medium text-white rounded hover:bg-green-500 hover:text-white transition duration-300">Đăng nhập</a>
+                            <a href="" className="py-2 px-2 font-medium text-white bg-green-500 rounded hover:bg-green-400 transition duration-300">Đăng ký</a> */}
                         </div>
                         {/* mobile menu button */}
                         <div className="md:hidden flex items-center">
@@ -66,8 +66,8 @@ const Navbart = ({absolute}) => {
                         <li><a href="/new" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Phim mới</a></li> */}
                         <li><a href="/history" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Lịch sử</a></li>
                         <li><a href="/search" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Tìm kiếm</a></li>
-                        <li><a href="#contact" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Đăng nhập</a></li>
-                        <li><a href="#contact" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Đăng ký</a></li>
+                        {/* <li><a href="#contact" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Đăng nhập</a></li>
+                        <li><a href="#contact" className="block text-sm px-2 py-4 hover:bg-green-500 transition duration-300">Đăng ký</a></li> */}
                     </ul>
                 </div>
             </nav>

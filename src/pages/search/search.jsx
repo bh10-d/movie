@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+// import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Navbart from '../../components/navbar/navbart.component';
 import {AppContext} from '../../context/AppProvider';
 
@@ -19,10 +19,10 @@ const Search = ()=>{
             .catch(err => console.log(err))
     }, [input]);
 
+    let data = list.filter(f=>f.poster_path != null);
+
     let TimerId = 0;
-
     const handleInput = (e) => {
-
         clearTimeout(TimerId);
         TimerId = setTimeout(() => {
             setInput(e.target.value);
@@ -57,15 +57,16 @@ const Search = ()=>{
                             <Link className="md:w-[225px]" to={`/watch/${converttype(m.media_type)}/${m.id}`} key={m.id}>
                             {/* // <Link className="md:w-[225px]" to={`/watch/movie/${m.id}`} key={m.id}> */}
                                 <div className="block_item-movie hover:text-zinc-500 overflow-hidden">
-                                    <LazyLoadImage
+                                    {/* <LazyLoadImage
                                         className="transition duration-700 object-cover h-[295px] w-[225px]"
                                         alt={(m.title != undefined)?m.title:m.name}
                                         // src={resize(m.coverVerticalUrl)}
                                         src={`https://image.tmdb.org/t/p/original${m.poster_path}`}
                                         effect="opacity"
                                         delayTime={1000}
-                                    />
-                                    <h1 className="text-ellipsis ">{(m.title != undefined)?m.title:m.name}</h1>
+                                    /> */}
+                                    <img className="h-[442px] w-[295px]" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt={m.original_title} />
+                                    <h1 className="text-ellipsis ">{m.title}</h1>
                                 </div>
                             </Link>
                         )
