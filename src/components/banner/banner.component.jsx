@@ -3,13 +3,8 @@ import { useState, useEffect, memo } from 'react';
 import '../banner/banner.styles.css';
 import HotBanner from '../../directory/banner/element.component';
 import Loading from '../loading/loading.component';
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import { Navigation } from "swiper";
-// Import Swiper styles
-// import 'swiper/css';
-// import 'swiper/css/navigation';
 
-const Banner = ({data}) => {
+const Banner = ({ data }) => {
     const [banner, setBanner] = useState([]);
     const [loading, setLoading] = useState(true);
 

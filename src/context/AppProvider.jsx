@@ -37,6 +37,8 @@ export default function AppProvider({ children }) {
 
     return (<AppContext.Provider
         value={{
+            BASE_URL,
+            CONFIG,
             page,
             setPage,
             datafilm,

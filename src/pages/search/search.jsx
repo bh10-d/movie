@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Navbart from '../../components/navbar/navbart.component';
+import {AppContext} from '../../context/AppProvider';
 
 
 const Search = ()=>{
+    const {BASE_URL, CONFIG} = useContext(AppContext)
     const [list,setList] = useState([])
     const [input,setInput] = useState('')
 
@@ -68,7 +70,7 @@ const Search = ()=>{
                             switch(type){
                                 case "movie":
                                     return convert = 0;
-                                case "drama":
+                                case "tv":
                                     return convert = 1; 
                                 default:
                                     return convert = 1;
@@ -79,8 +81,9 @@ const Search = ()=>{
                                 <div className="block_item-movie hover:text-zinc-500 overflow-hidden">
                                     {/* <LazyLoadImage
                                         className="transition duration-700 object-cover h-[295px] w-[225px]"
-                                        alt={m.name}
-                                        src={resize(m.coverVerticalUrl)}
+                                        alt={(m.title != undefined)?m.title:m.name}
+                                        // src={resize(m.coverVerticalUrl)}
+                                        src={`https://image.tmdb.org/t/p/original${m.poster_path}`}
                                         effect="opacity"
                                         delayTime={1000}
                                     /> */}

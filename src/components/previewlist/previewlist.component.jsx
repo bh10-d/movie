@@ -58,6 +58,8 @@ const PreviewList = ({ data }) => {
         return <Loading typeLoading="list"/>;
     }
 
+    console.log(data)
+
     return (
         <>
             {/* {data.map((m, i) => ( */}

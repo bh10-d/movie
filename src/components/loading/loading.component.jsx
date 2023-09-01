@@ -1,4 +1,4 @@
-import React from 'react';
+import { React } from 'react';
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from "swiper";
@@ -51,9 +51,23 @@ const Loading = ({ typeLoading }) => {
     
     const Banner = ()=>{
         return(
-            <div id="carouselExampleControls" className="carousel slide relative" data-bs-ride="carousel">
-                <div className="w-full h-screen bg-slate-600 animate-pulse"></div>
-            </div>
+            <Carousel
+                navigation={() => (
+                    <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2"></div>
+                )}
+            >
+                <div className="relative h-full w-full">
+                    <img
+                        src="./banner1.jpg"
+                        className="block w-full opacity-0"
+                        alt="background film"
+                    />
+                    <div className="absolute inset-0 grid h-full w-full">
+                        {/* <div className="w-full h-screen bg-slate-600 animate-pulse"></div>   */}
+                        <div className="w-full h-screen bg-black animate-pulse"></div>  
+                    </div>
+                </div>
+            </Carousel>
         )
     }
 
