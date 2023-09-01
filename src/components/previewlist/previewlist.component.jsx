@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {AppContext} from '../../context/AppProvider';
 /*slider */
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from "swiper";
+import { Navigation } from "swiper/modules";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Loading from '../loading/loading.component';
 // Import Swiper styles
@@ -43,7 +43,7 @@ const PreviewList = ({data}) => {
     }
 
     // const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
-    const extract = info.filter((f, i) => f.homeSectionName != '' && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
+    // const extract = info.filter((f, i) => f.homeSectionName != '' && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
 
     const resize = (url)=>{
         const newsize = `https://images.weserv.nl/?url=${url}&w=175&h=246`;
@@ -54,55 +54,82 @@ const PreviewList = ({data}) => {
         return <Loading typeLoading="list"/>;
     }
 
+    console.log(data)
+
     return (
         <>
-            {extract.map((m, i) => (
-                <div key={i} className="mt-5">
-                    <h2 className="text-[25px] font-bold">{m.homeSectionName}</h2>
-                    <div className="plist mt-2">
+            {/* {data.map((m, i) => ( */}
+                {/* // <div key={i} className="mt-5">
+                //     <h2 className="text-[25px] font-bold">{m.homeSectionName}</h2>
+                //     <div className="plist mt-2">
+                //         <div>
+                //                 <div key={m.id} className="pmovie">
+                //                         <Link 
+                //                             to={`/watch/${m.media_type}/${m.id}`} 
+                //                             onClick={()=>{
+                //                                 handleClick({title: m.title, imageUrl: m.poster_path, category: m.media_type, id: m.id})
+                //                             }}
+                //                         >
+                //                             <div className="block_item-movie hover:text-zinc-500">
+                //                                 <LazyLoadImage
+                //                                     className="transition duration-700 object-cover h-[295px] w-[225px]"
+                //                                     alt={m.title}
+                //                                     // src={resize('https://image.tmdb.org/t/p/original'+m.poster_path)}
+                //                                     src={'https://image.tmdb.org/t/p/original'+m.poster_path}
+                //                                     effect="opacity"
+                //                                     delayTime={500}
+                //                                     visibleByDefault={m.poster_path === '/landscape.jpg'}
+                                                    
+                //                                 />
+                //                                 <h1  className="text-ellipsis overflow-hidden">{m.title}</h1>
+                //                             </div>
+                //                         </Link>
+                //                 </div>)
+                //         </div> */}
+                <div className="mt-5">
+                    {/* <h2 className="text-[25px] font-bold">test</h2> */}
+                        <div className="plist mt-2">
                         <Swiper
                             modules={[Navigation]}
                             slidesPerView='auto'
                             slidesPerGroupAuto
-                            navigation
+                            navigation={true}
                             spaceBetween={49}
                         >
-                            {
-                                m.recommendContentVOList.map(mm => (
-                                    <div key={mm.id} className="pmovie">
-                                        <SwiperSlide
-                                            style={{
-                                                width: '200px'
-                                            }}
-                                            key={mm.id}
-                                        >
-                                            <Link 
-                                                to={`/watch/${mm.category}/${mm.id}`} 
-                                                onClick={()=>{
-                                                    handleClick({title: mm.title, imageUrl: mm.imageUrl, category: mm.category, id: mm.id})
-                                                }}
-                                            >
-                                                <div className="block_item-movie hover:text-zinc-500">
-                                                    <LazyLoadImage
-                                                        className="transition duration-700 object-cover h-[295px] w-[225px]"
-                                                        alt={mm.title}
-                                                        src={resize(mm.imageUrl)}
-                                                        effect="opacity"
-                                                        delayTime={500}
-                                                        visibleByDefault={mm.imageUrl === '/landscape.jpg'}
-                                                        
-                                                    />
-                                                    <h1  className="text-ellipsis overflow-hidden">{mm.title}</h1>
-                                                </div>
-                                            </Link>
-                                        </SwiperSlide>
-                                    </div>)
-                                )
-                            }
+                            <div className="pmovie">
+                            {data.map((m, i) => (
+                                <SwiperSlide
+                                    style={{
+                                        width: '200px'
+                                    }}
+                                    key={m.id}
+                                >
+                                    <Link 
+                                        to={`/watch/${m.media_type}/${m.id}`} 
+                                        onClick={()=>{
+                                            handleClick({title: m.title, imageUrl: m.poster_path, category: m.media_type, id: m.id})
+                                        }}
+                                    >
+                                        <div className="block_item-movie hover:text-zinc-500">
+                                            <LazyLoadImage
+                                                className="transition duration-700 object-cover h-[295px] w-[225px]"
+                                                alt={m.title}
+                                                src={'https://image.tmdb.org/t/p/original'+m.poster_path}
+                                                effect="opacity"
+                                                delayTime={500}
+                                                visibleByDefault={m.poster_path === '/landscape.jpg'}
+                                                
+                                            />
+                                            <h1  className="text-ellipsis overflow-hidden">{m.title}</h1>
+                                        </div>
+                                    </Link>
+                                </SwiperSlide>
+                                ))}
+                            </div>
                         </Swiper>
                     </div>
                 </div>
-            ))}
+            {/* // ))} */}
         </>
     )
 }
