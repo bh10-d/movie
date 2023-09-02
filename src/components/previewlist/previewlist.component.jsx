@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { AppContext } from '../../context/AppProvider';
 /*slider */
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from "swiper";
-// import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Navigation } from "swiper/modules";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Loading from '../loading/loading.component';
 // Import Swiper styles
 import 'swiper/css';
@@ -43,8 +43,8 @@ const PreviewList = ({ data }) => {
         return arrFiltered;
     }
 
-    let datafilter = removeduplicates(data);
-    console.log(datafilter);
+    // const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
+    // const extract = info.filter((f, i) => f.homeSectionName != '' && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
 
     // const extract = info.filter((f, i) => i > 1 && i < 8 && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
     // const extract = info.filter((f, i) => f.homeSectionName != '' && f.homeSectionName != "LOKLOK Charts" && f.homeSectionName != "K-Stars" && f.homeSectionType != "BLOCK_GROUP");
@@ -63,91 +63,77 @@ const PreviewList = ({ data }) => {
     return (
         <>
             {/* {data.map((m, i) => ( */}
-            <div className="mt-5">
-                {/* <h2 className="text-[25px] font-bold">{m.homeSectionName}</h2> */}
-                <div className="mt-2 xl:mr-24 xl:ml-24 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
-                    {
-                        datafilter.map(m => (
-                            <div key={m.id} className="mx-1 my-2 xl:mx-2 xl:my-3">
-                                {/* <SwiperSlide
-                                        style={{
-                                            width: '200px'
-                                        }}
-                                        key={m.id}
-                                    > */}
-                                <Link
-                                    to={`/watch/${m.category}/${m.id}`}
-                                // onClick={()=>{
-                                //     handleClick({title: m.title, imageUrl: m.imageUrl, category: m.category, id: m.id})
-                                // }}
+                {/* // <div key={i} className="mt-5">
+                //     <h2 className="text-[25px] font-bold">{m.homeSectionName}</h2>
+                //     <div className="plist mt-2">
+                //         <div>
+                //                 <div key={m.id} className="pmovie">
+                //                         <Link 
+                //                             to={`/watch/${m.media_type}/${m.id}`} 
+                //                             onClick={()=>{
+                //                                 handleClick({title: m.title, imageUrl: m.poster_path, category: m.media_type, id: m.id})
+                //                             }}
+                //                         >
+                //                             <div className="block_item-movie hover:text-zinc-500">
+                //                                 <LazyLoadImage
+                //                                     className="transition duration-700 object-cover h-[295px] w-[225px]"
+                //                                     alt={m.title}
+                //                                     // src={resize('https://image.tmdb.org/t/p/original'+m.poster_path)}
+                //                                     src={'https://image.tmdb.org/t/p/original'+m.poster_path}
+                //                                     effect="opacity"
+                //                                     delayTime={500}
+                //                                     visibleByDefault={m.poster_path === '/landscape.jpg'}
+                                                    
+                //                                 />
+                //                                 <h1  className="text-ellipsis overflow-hidden">{m.title}</h1>
+                //                             </div>
+                //                         </Link>
+                //                 </div>)
+                //         </div> */}
+                <div className="mt-5">
+                    {/* <h2 className="text-[25px] font-bold">test</h2> */}
+                        <div className="plist mt-2">
+                        <Swiper
+                            modules={[Navigation]}
+                            slidesPerView='auto'
+                            slidesPerGroupAuto
+                            navigation={true}
+                            spaceBetween={49}
+                        >
+                            <div className="pmovie">
+                            {data.map((m, i) => (
+                                <SwiperSlide
+                                    style={{
+                                        width: '200px'
+                                    }}
+                                    key={m.id}
                                 >
-                                    <div className="block_item-movie hover:text-zinc-500">
-                                        {/* <LazyLoadImage
-                                                        className="transition duration-700 object-cover h-[295px] w-[225px]"
-                                                        alt={mm.title}
-                                                        src={resize(mm.imageUrl)}
-                                                        effect="opacity"
-                                                        delayTime={500}
-                                                        visibleByDefault={mm.imageUrl === '/landscape.jpg'}
-                                                        
-                                                    /> */}
-                                        <img className="h-[442px] w-[295px]" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt={m.original_title} />
-                                        <h1 className="text-ellipsis overflow-hidden text-base font-medium">{m.title}</h1>
-                                    </div>
-                                </Link>
-                                {/* </SwiperSlide> */}
-                            </div>
-                        )
-                        )
-                    }
-
-
-
-                    {/* <Swiper
-                        modules={[Navigation]}
-                        slidesPerView='4'
-                        slidesPerGroupAuto
-                        navigation
-                        spaceBetween={100}
-                    >
-                        {
-                            datafilter.map(m => (
-                                <div key={m.id} className="pmovie">
-                                    <SwiperSlide
-                                        style={{
-                                            width: '200px'
+                                    <Link 
+                                        to={`/watch/${m.media_type}/${m.id}`} 
+                                        onClick={()=>{
+                                            handleClick({title: m.title, imageUrl: m.poster_path, category: m.media_type, id: m.id})
                                         }}
-                                        key={m.id}
                                     >
-                                        <Link
-                                            to={`/watch/${m.category}/${m.id}`} */}
-                    {/* // onClick={()=>{
-                                        //     handleClick({title: m.title, imageUrl: m.imageUrl, category: m.category, id: m.id})
-                                        // }}
-                                        > */}
-                    {/* <div className="block_item-movie hover:text-zinc-500"> */}
-                    {/* <LazyLoadImage
-                                                        className="transition duration-700 object-cover h-[295px] w-[225px]"
-                                                        alt={mm.title}
-                                                        src={resize(mm.imageUrl)}
-                                                        effect="opacity"
-                                                        delayTime={500}
-                                                        visibleByDefault={mm.imageUrl === '/landscape.jpg'}
-                                                        
-                                                    /> */}
-                    {/* <img src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt={m.original_title} />
-                                                <h1 className="text-ellipsis overflow-hidden">{m.title}</h1>
-                                            </div>
-                                        </Link>
-                                    </SwiperSlide>
-                                </div>
-                            )
-                            )
-                        }
-                    </Swiper> */}
+                                        <div className="block_item-movie hover:text-zinc-500">
+                                            <LazyLoadImage
+                                                className="transition duration-700 object-cover h-[295px] w-[225px]"
+                                                alt={m.title}
+                                                src={'https://image.tmdb.org/t/p/original'+m.poster_path}
+                                                effect="opacity"
+                                                delayTime={500}
+                                                visibleByDefault={m.poster_path === '/landscape.jpg'}
+                                                
+                                            />
+                                            <h1  className="text-ellipsis overflow-hidden">{m.title}</h1>
+                                        </div>
+                                    </Link>
+                                </SwiperSlide>
+                                ))}
+                            </div>
+                        </Swiper>
+                    </div>
                 </div>
-            </div>
-            {/* ))} */}
+            {/* // ))} */}
         </>
     )
 }

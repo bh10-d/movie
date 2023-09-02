@@ -101,20 +101,19 @@ const Video = ({ data, episode, first, subtitle }) => {
 
   const Player = (props) => {
     return (
-      <></>
-      // <ReactHlsPlayer
-      //   src={`${props.media}`}
-      //   type="application/x-mpegURL"
-      //   autoPlay={false}
-      //   controls={true}
-      //   width="100%"
-      //   height="auto"
-      //   // outline="none"
-      //   crossOrigin=""
-      //   playsInline
-      // >
-      //   {props.children}
-      // </ReactHlsPlayer>
+      <ReactHlsPlayer
+        src={`https://autoembed.to/movie/tmdb/${props.media}`}
+        type="application/x-mpegURL"
+        autoPlay={false}
+        controls={true}
+        width="100%"
+        height="auto"
+        // outline="none"
+        crossOrigin=""
+        playsInline
+      >
+        {props.children}
+      </ReactHlsPlayer>
     )
   }
 

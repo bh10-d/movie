@@ -1,8 +1,9 @@
 import { React } from 'react';
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from "swiper";
-// import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Navigation } from "swiper/modules";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { Carousel } from "@material-tailwind/react";
 
 const Loading = ({ typeLoading }) => {
     const List = ()=>{
@@ -16,9 +17,10 @@ const Loading = ({ typeLoading }) => {
                 <div className="mb-5 xl:mr-24 xl:ml-24">
                     <Swiper
                         modules={[Navigation]}
-                        slidesPerView='4'
-                        navigation
-                        spaceBetween={100}
+                        slidesPerView='auto'
+                        slidesPerGroupAuto
+                        navigation={true}
+                        spaceBetween={67}
                     >
                         {
                             arr.map((m,i)=>(
@@ -30,7 +32,7 @@ const Loading = ({ typeLoading }) => {
                                         // }}
                                     >
                                         <Link key={m.id} to={`/`}>
-                                            <div className="block_item-movie hover:text-zinc-500 bg-slate-600 animate-pulse">
+                                            <div className="block_item-movie hover:text-zinc-500 bg-black animate-pulse">
                                                 {/* <LazyLoadImage
                                                     className="transition duration-700 object-cover h-[295px]"
                                                     effect="opacity"
