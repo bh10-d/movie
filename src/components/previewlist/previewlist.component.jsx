@@ -109,7 +109,7 @@ const PreviewList = ({ data }) => {
                         data.map(m => (
                             <div key={m.id} className="xl:mx-2 xl:my-3">
                                 <Link
-                                    to={`/watch/${m.category}/${m.id}`}
+                                    to={`/watch/${m.media_type}/${m.id}`}
                                 // onClick={()=>{
                                 //     handleClick({title: m.title, imageUrl: m.imageUrl, category: m.category, id: m.id})
                                 // }}

@@ -50,13 +50,16 @@ const Episode = ({ ep, first }) => {
 
     return (
         <div>
-            <div className={`episode ${(showMovie) ? `` : 'h-[550px] w-full'} overflow-hidden bg-black`}>
+            <div className={`episode ${(showMovie) ? `` : 'h-[550px] w-full pl-4 pt-2'} overflow-hidden overflow-y-scroll`}>
                 <div>
                     <h1 className="text-xl font-bold">Tập</h1>
                     {/* <input type="text"  placeholder="tập phim"/> */}
                 </div>
-                test
-                {/* {ep.map((e, i) => ( */}
+                <div className="grid grid-cols-5">
+                    <button className="py-2 px-4 mr-5 mt-3 text-white font-bold rounded-lg bg-green-500 shadow-md hover:bg-green-700">1</button>
+                    
+                </div>
+                {/* s{ep.map((e, i) => ( */}
                 {/* // <button className="py-2 px-4 mr-5 mt-3 text-white rounded-lg bg-red-500 shadow-md hover:bg-red-700">Tập {i + 1}</button>
                     // <Link */}
                 {/* //     // key={e.id}
