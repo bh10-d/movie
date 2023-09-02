@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 // import './homepage.styles.css';
 import Banner from '../../components/banner/banner.component';
 // import Sidebar from '../../components/sidebar/sidebar.component';
@@ -10,35 +10,11 @@ import {AppContext} from '../../context/AppProvider';
 
 
 const HomePage = () => {
-    const {BASE_URL, CONFIG, page, setPage, datafilm, setDataFilm} = React.useContext(AppContext)
-    const [loading,setLoading] = useState(true);
+    const {BASE_URL, CONFIG, datafilm, setDataFilm} = useContext(AppContext)
+    const [loading,setLoading] = useState(false);
+
     useEffect(() => {
-      getData();
-    });
-
-    const getData = () =>{
-      // fetch(`https://ga-mobile-api.loklok.tv/cms/app/homePage/getHome?page=${page}`, {
-      //   method: 'GET',
-      //   headers: {
-      //     'Content-type': 'application/json;charset=UTF-8',
-      //     'lang': 'en',
-      //     'versioncode': '11',
-      //     'clienttype': 'ios_jike_default'
-      //   }
-      // }).then(res => res.json())
-      //   .then(d => {
-      //     if(datafilm.length != 0){
-      //       setDataFilm(prev=>[...prev,d.data.recommendItems]);
-      //     }else{
-      //       setDataFilm(d.data.recommendItems);
-      //     }
-      //     setLoading(d.length == 0)
-      //   })
-      //   .catch(err => {
-      //     console.log(err);
-      //   })
-      //   // console.log('run get data')
-
+      console.log("data has been called");
       const url = BASE_URL+'trending/movie/week?language=vi';
         try {
           const response = fetch(url, CONFIG);
@@ -46,19 +22,19 @@ const HomePage = () => {
           .then(d=>{
             if(datafilm.length != 0){
               setDataFilm(d.results)
-              // console.log(d.results);
+              console.log(d.results);
               // setDataFilm(prev=>[...prev,d.data.recommendItems]);
             }else{
               setDataFilm(d => [...d, d.results]);
             }
-            setLoading(d.length == 0)
-            // console.log(d)
+            setLoading(datafilm == 0)
+            console.log(datafilm)
           });
         } catch (error) {
           console.error(error);
         }
-      }
-    // console.log('check data result: ', [].concat.apply([], datafilm))
+    },[loading]);
+      console.log('fetch')
 
     return (
         <div>

@@ -29,7 +29,7 @@ const HotBanner = ({ data }) => {
                   )}
             >
                 {data.map((m, i) => (
-                    <div className="relative h-full w-full">
+                    <div className="relative h-full w-full" key={i}>
                         <img
                             // src={resize(m.imageUrl)}
                             // src={m.imageUrl}
@@ -39,8 +39,8 @@ const HotBanner = ({ data }) => {
                             alt="background film"
                         />
                         <div className="absolute inset-0 grid h-full w-full place-items-center">
-                            <div className="left-40 bottom-36 absolute">
-                                <div className="w-3/4 md:w-2/4 overflow-hidden text-ellipsis">
+                            <div className=" left-20 lg:left-40 bottom-10 lg:bottom-36 absolute h-[31%] w-full overflow-hidden text-ellipsis">
+                                <div className="w-3/4 md:w-2/4">
                                     <Typography
                                         variant="h1"
                                         color="white"

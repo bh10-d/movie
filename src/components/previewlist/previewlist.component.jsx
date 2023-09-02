@@ -55,44 +55,16 @@ const PreviewList = ({ data }) => {
     }
 
     if (loading) {
-        return <Loading typeLoading="list"/>;
+        return <Loading typeLoading="list" />;
     }
 
     console.log(data)
 
     return (
         <>
-            {/* {data.map((m, i) => ( */}
-                {/* // <div key={i} className="mt-5">
-                //     <h2 className="text-[25px] font-bold">{m.homeSectionName}</h2>
-                //     <div className="plist mt-2">
-                //         <div>
-                //                 <div key={m.id} className="pmovie">
-                //                         <Link 
-                //                             to={`/watch/${m.media_type}/${m.id}`} 
-                //                             onClick={()=>{
-                //                                 handleClick({title: m.title, imageUrl: m.poster_path, category: m.media_type, id: m.id})
-                //                             }}
-                //                         >
-                //                             <div className="block_item-movie hover:text-zinc-500">
-                //                                 <LazyLoadImage
-                //                                     className="transition duration-700 object-cover h-[295px] w-[225px]"
-                //                                     alt={m.title}
-                //                                     // src={resize('https://image.tmdb.org/t/p/original'+m.poster_path)}
-                //                                     src={'https://image.tmdb.org/t/p/original'+m.poster_path}
-                //                                     effect="opacity"
-                //                                     delayTime={500}
-                //                                     visibleByDefault={m.poster_path === '/landscape.jpg'}
-                                                    
-                //                                 />
-                //                                 <h1  className="text-ellipsis overflow-hidden">{m.title}</h1>
-                //                             </div>
-                //                         </Link>
-                //                 </div>)
-                //         </div> */}
-                <div className="mt-5">
-                    {/* <h2 className="text-[25px] font-bold">test</h2> */}
-                        <div className="plist mt-2">
+            <div className="mt-5">
+                {/* <h2 className="text-[25px] font-bold">test</h2> */}
+                {/* <div className="plist mt-2">
                         <Swiper
                             modules={[Navigation]}
                             slidesPerView='auto'
@@ -131,9 +103,28 @@ const PreviewList = ({ data }) => {
                                 ))}
                             </div>
                         </Swiper>
-                    </div>
+                    </div> */}
+                <div className="mt-2 grid grid-cols-2 gap-4 lg:grid-cols-4">
+                    {
+                        data.map(m => (
+                            <div key={m.id} className="xl:mx-2 xl:my-3">
+                                <Link
+                                    to={`/watch/${m.category}/${m.id}`}
+                                // onClick={()=>{
+                                //     handleClick({title: m.title, imageUrl: m.imageUrl, category: m.category, id: m.id})
+                                // }}
+                                >
+                                    <div className="block_item-movie hover:text-zinc-500">
+                                        <img className="h-[442px] w-[295px]" src={`https://image.tmdb.org/t/p/w500${m.poster_path}`} alt={m.original_title} />
+                                        <h1 className="text-ellipsis overflow-hidden text-base font-medium">{m.title}</h1>
+                                    </div>
+                                </Link>
+                            </div>
+                        )
+                        )
+                    }
                 </div>
-            {/* // ))} */}
+            </div>
         </>
     )
 }
