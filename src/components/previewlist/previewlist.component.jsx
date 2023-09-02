@@ -110,9 +110,9 @@ const PreviewList = ({ data }) => {
                                 >
                                     <Link 
                                         to={`/watch/${m.media_type}/${m.id}`} 
-                                        onClick={()=>{
-                                            handleClick({title: m.title, imageUrl: m.poster_path, category: m.media_type, id: m.id})
-                                        }}
+                                        // onClick={()=>{
+                                        //     handleClick({title: m.title, imageUrl: m.poster_path, category: m.media_type, id: m.id})
+                                        // }}
                                     >
                                         <div className="block_item-movie hover:text-zinc-500">
                                             <LazyLoadImage
