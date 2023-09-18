@@ -89,12 +89,10 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    font-size: 22px;
-    transition: all 0.7s ease;
     font-size: 23px;
+    transition: all 0.7s ease;
     text-align: center;
     cursor: pointer;
-    transition: all 0.7s ease;
 }
 
 .navbar.open .logo-details #btn {
@@ -126,12 +124,10 @@
         top: 50%;
         right: 40px;
         transform: translateY(-50%);
-        font-size: 22px;
-        transition: all 0.7s ease;
         font-size: 23px;
+        transition: all 0.7s ease;
         text-align: center;
         cursor: pointer;
-        transition: all 0.7s ease;
     }
     
     .navbar.open .logo-details #search {
