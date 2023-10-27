@@ -6,7 +6,7 @@
         "@material-tailwind/react": "^2.1.1",
         "@testing-library/react": "^14.0.0",
         "@testing-library/user-event": "^14.4.3",
-        "css-what": "^5.0.1",
+        "css-what": "^5.1.0",
         "navigation": "^6.2.0",
         "nth-check": "^2.1.1",
         "react": "^18.2.0",
