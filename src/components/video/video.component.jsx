@@ -137,7 +137,7 @@ const Video = ({ data, episode, first, subtitle }) => {
       {/* <Player media={media}> */}
         {/* <track label="vi" kind="subtitles" srcLang="en" src={`https://srt-to-vtt.vercel.app?url=${encodeURIComponent(subtitle)}`} default/> */}
       {/* </Player> */}
-      <iframe className="h-full w-full" src={`https://autoembed.to/movie/tmdb/${v}`} allowFullScreen></iframe>
+      <iframe className="h-full w-full" src={`https://autoembed.co/movie/tmdb/${v}`} allowFullScreen></iframe>
     </div>
   )
 }
